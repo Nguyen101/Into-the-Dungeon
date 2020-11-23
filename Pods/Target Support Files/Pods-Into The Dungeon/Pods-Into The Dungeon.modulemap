@@ -1,0 +1,6 @@
+framework module Pods_Into_The_Dungeon {
+  umbrella header "Pods-Into The Dungeon-umbrella.h"
+
+  export *
+  module * { export * }
+}

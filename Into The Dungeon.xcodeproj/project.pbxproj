@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,9 +15,12 @@
 		39BE5A57256C40D2007F0724 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39BE5A55256C40D2007F0724 /* Main.storyboard */; };
 		39BE5A59256C40D4007F0724 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39BE5A58256C40D4007F0724 /* Assets.xcassets */; };
 		39BE5A5C256C40D4007F0724 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39BE5A5A256C40D4007F0724 /* LaunchScreen.storyboard */; };
+		39BE5A66256C4A43007F0724 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39BE5A65256C4A43007F0724 /* GoogleService-Info.plist */; };
+		F81646979088E355B297EC73 /* Pods_Into_The_Dungeon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C3F35511275F9D40E9760CA /* Pods_Into_The_Dungeon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		27E6C74DBAA892679180C3AF /* Pods-Into The Dungeon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Into The Dungeon.release.xcconfig"; path = "Target Support Files/Pods-Into The Dungeon/Pods-Into The Dungeon.release.xcconfig"; sourceTree = "<group>"; };
 		39BE5A48256C40D2007F0724 /* Into The Dungeon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Into The Dungeon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39BE5A4B256C40D2007F0724 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39BE5A4D256C40D2007F0724 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -28,6 +31,9 @@
 		39BE5A58256C40D4007F0724 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39BE5A5B256C40D4007F0724 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39BE5A5D256C40D4007F0724 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39BE5A65256C4A43007F0724 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8C3F35511275F9D40E9760CA /* Pods_Into_The_Dungeon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Into_The_Dungeon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4530EACA850101A1B0F400C /* Pods-Into The Dungeon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Into The Dungeon.debug.xcconfig"; path = "Target Support Files/Pods-Into The Dungeon/Pods-Into The Dungeon.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F81646979088E355B297EC73 /* Pods_Into_The_Dungeon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +53,8 @@
 			children = (
 				39BE5A4A256C40D2007F0724 /* Into The Dungeon */,
 				39BE5A49256C40D2007F0724 /* Products */,
+				AA561E2893335D356E53A8AC /* Pods */,
+				6F1B35B30F9836B0DCC096D9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,10 +76,28 @@
 				39BE5A53256C40D2007F0724 /* GameViewController.swift */,
 				39BE5A55256C40D2007F0724 /* Main.storyboard */,
 				39BE5A58256C40D4007F0724 /* Assets.xcassets */,
+				39BE5A65256C4A43007F0724 /* GoogleService-Info.plist */,
 				39BE5A5A256C40D4007F0724 /* LaunchScreen.storyboard */,
 				39BE5A5D256C40D4007F0724 /* Info.plist */,
 			);
 			path = "Into The Dungeon";
+			sourceTree = "<group>";
+		};
+		6F1B35B30F9836B0DCC096D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8C3F35511275F9D40E9760CA /* Pods_Into_The_Dungeon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AA561E2893335D356E53A8AC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F4530EACA850101A1B0F400C /* Pods-Into The Dungeon.debug.xcconfig */,
+				27E6C74DBAA892679180C3AF /* Pods-Into The Dungeon.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -80,9 +107,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 39BE5A60256C40D4007F0724 /* Build configuration list for PBXNativeTarget "Into The Dungeon" */;
 			buildPhases = (
+				853EDF530D84FA14EC3C7116 /* [CP] Check Pods Manifest.lock */,
 				39BE5A44256C40D2007F0724 /* Sources */,
 				39BE5A45256C40D2007F0724 /* Frameworks */,
 				39BE5A46256C40D2007F0724 /* Resources */,
+				E0FAEF775B4744F4922CC006 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -136,10 +165,53 @@
 				39BE5A59256C40D4007F0724 /* Assets.xcassets in Resources */,
 				39BE5A5C256C40D4007F0724 /* LaunchScreen.storyboard in Resources */,
 				39BE5A50256C40D2007F0724 /* Actions.sks in Resources */,
+				39BE5A66256C4A43007F0724 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		853EDF530D84FA14EC3C7116 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Into The Dungeon-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0FAEF775B4744F4922CC006 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Into The Dungeon/Pods-Into The Dungeon-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Into The Dungeon/Pods-Into The Dungeon-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Into The Dungeon/Pods-Into The Dungeon-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		39BE5A44256C40D2007F0724 /* Sources */ = {
@@ -290,6 +362,7 @@
 		};
 		39BE5A61256C40D4007F0724 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4530EACA850101A1B0F400C /* Pods-Into The Dungeon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -308,6 +381,7 @@
 		};
 		39BE5A62256C40D4007F0724 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27E6C74DBAA892679180C3AF /* Pods-Into The Dungeon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

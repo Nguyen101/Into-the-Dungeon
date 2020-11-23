@@ -9,11 +9,13 @@
 import UIKit
 import SpriteKit
 import GameplayKit
+import FirebaseDatabase
 
 class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let ref = Database.database().reference()
         
         // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
         // including entities and graphs.
