@@ -22,6 +22,7 @@ class GameScene: SKScene {
 
         self.lastUpdateTime = 0
         
+        
         // Get label node from scene and store it for use later
         self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
         if let label = self.label {
