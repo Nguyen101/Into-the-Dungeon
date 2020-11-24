@@ -16,6 +16,7 @@
 		39BE5A59256C40D4007F0724 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39BE5A58256C40D4007F0724 /* Assets.xcassets */; };
 		39BE5A5C256C40D4007F0724 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39BE5A5A256C40D4007F0724 /* LaunchScreen.storyboard */; };
 		39BE5A66256C4A43007F0724 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39BE5A65256C4A43007F0724 /* GoogleService-Info.plist */; };
+		96371B74256D8A2500210BBE /* FirebaseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96371B73256D8A2500210BBE /* FirebaseUtils.swift */; };
 		964487B4256C9A8D00340D98 /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964487B3256C9A8D00340D98 /* FirstScreenViewController.swift */; };
 		F81646979088E355B297EC73 /* Pods_Into_The_Dungeon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C3F35511275F9D40E9760CA /* Pods_Into_The_Dungeon.framework */; };
 /* End PBXBuildFile section */
@@ -34,6 +35,7 @@
 		39BE5A5D256C40D4007F0724 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39BE5A65256C4A43007F0724 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8C3F35511275F9D40E9760CA /* Pods_Into_The_Dungeon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Into_The_Dungeon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		96371B73256D8A2500210BBE /* FirebaseUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUtils.swift; sourceTree = "<group>"; };
 		964487B3256C9A8D00340D98 /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewController.swift; sourceTree = "<group>"; };
 		F4530EACA850101A1B0F400C /* Pods-Into The Dungeon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Into The Dungeon.debug.xcconfig"; path = "Target Support Files/Pods-Into The Dungeon/Pods-Into The Dungeon.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,6 +84,7 @@
 				39BE5A5A256C40D4007F0724 /* LaunchScreen.storyboard */,
 				39BE5A5D256C40D4007F0724 /* Info.plist */,
 				964487B3256C9A8D00340D98 /* FirstScreenViewController.swift */,
+				96371B73256D8A2500210BBE /* FirebaseUtils.swift */,
 			);
 			path = "Into The Dungeon";
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39BE5A52256C40D2007F0724 /* GameScene.swift in Sources */,
+				96371B74256D8A2500210BBE /* FirebaseUtils.swift in Sources */,
 				964487B4256C9A8D00340D98 /* FirstScreenViewController.swift in Sources */,
 				39BE5A54256C40D2007F0724 /* GameViewController.swift in Sources */,
 				39BE5A4C256C40D2007F0724 /* AppDelegate.swift in Sources */,

@@ -29,14 +29,7 @@ class FirstScreenViewController: UIViewController {
     
     @IBAction func createGameButton(_ sender: Any) {
         addPlayerToGame(isInCharge: true)
-        
-        //this is to test the database
-        print("create game button pressed")
-        self.ref.child("games").child(gameID).child(userName).child("name").observeSingleEvent(of: .value, with: { (sanpshot) in
-            if let id = sanpshot.value as? String {
-                print("thh value from the database: \(id)")
-            }
-        })
+    
     }
     
     override func viewDidLoad() {
@@ -46,24 +39,24 @@ class FirstScreenViewController: UIViewController {
     }
     
     func addPlayerToGame(isInCharge: Bool) {
-            guard let gameId = gameIDTextField.text, let userName = userNameTextField.text else {
-                
-                alertUser(title: "Wrong input", message: "please provide valid inputs for the game id and the username")
-                
-                return
-            }
+        guard let gameId = gameIDTextField.text, let userName = userNameTextField.text else {
+            
+            alertUser(title: "Wrong input", message: "please provide valid inputs for the game id and the username")
+            
+            return
+        }
         
         self.userName = userName
         self.gameID = gameId
             
-            let data = [
-                "name": userName,
-                "inCharge": isInCharge,
-                "class": "none",
-                "hitpoints": 12
-            ] as [String : Any]
+        let data = [
+            "name": userName,
+            "inCharge": isInCharge,
+            "class": "none",
+            "hitpoints": 12
+        ] as [String : Any]
             
-        self.ref.child("games").child(gameId).child(userName).setValue(data)
+        FirebaseUtils.setUserData(gameID: gameID, userName: userName, userData: data)
     }
     
     /*
