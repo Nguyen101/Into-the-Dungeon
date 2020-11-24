@@ -12,6 +12,8 @@ import Firebase
 class FirstScreenViewController: UIViewController {
     
     var ref: DatabaseReference!
+    
+    //these two variables are what we are goingg to be pasing around the game
     var userName: String = ""
     var gameID: String = ""
     
@@ -20,12 +22,15 @@ class FirstScreenViewController: UIViewController {
     @IBOutlet weak var userNameTextField: UITextField!
     
     @IBAction func joinGameButton(_ sender: Any) {
+        //todo make sure that the game id is in the database
+        
         addPlayerToGame(isInCharge: false)
     }
     
     @IBAction func createGameButton(_ sender: Any) {
         addPlayerToGame(isInCharge: true)
         
+        //this is to test the database
         print("create game button pressed")
         self.ref.child("games").child(gameID).child(userName).child("name").observeSingleEvent(of: .value, with: { (sanpshot) in
             if let id = sanpshot.value as? String {
