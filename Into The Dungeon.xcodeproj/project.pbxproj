@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3923F71A256DB9380083FF81 /* SpriteComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3923F719256DB9380083FF81 /* SpriteComponents.swift */; };
+		3923F71D256DB96F0083FF81 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3923F71C256DB96F0083FF81 /* Card.swift */; };
+		3923F71F256DB9870083FF81 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3923F71E256DB9870083FF81 /* Hero.swift */; };
+		3923F721256DB9940083FF81 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3923F720256DB9940083FF81 /* Enemy.swift */; };
+		3923F723256DB9AF0083FF81 /* Warrior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3923F722256DB9AF0083FF81 /* Warrior.swift */; };
+		3923F725256DB9BD0083FF81 /* Archer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3923F724256DB9BD0083FF81 /* Archer.swift */; };
+		3923F727256DB9CB0083FF81 /* EntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3923F726256DB9CB0083FF81 /* EntityManager.swift */; };
+		3923F729256DB9DC0083FF81 /* Cleric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3923F728256DB9DC0083FF81 /* Cleric.swift */; };
+		3923F72B256DBA490083FF81 /* HeroComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3923F72A256DBA490083FF81 /* HeroComponents.swift */; };
+		3923F72D256DBA570083FF81 /* EnemyComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3923F72C256DBA570083FF81 /* EnemyComponents.swift */; };
+		3923F72F256DBA930083FF81 /* WarriorComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3923F72E256DBA930083FF81 /* WarriorComponents.swift */; };
+		3923F731256DBAAB0083FF81 /* ArcherComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3923F730256DBAAB0083FF81 /* ArcherComponents.swift */; };
+		3923F733256DBB0C0083FF81 /* ClericComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3923F732256DBB0C0083FF81 /* ClericComponents.swift */; };
+		3923F735256DBB560083FF81 /* MageComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3923F734256DBB560083FF81 /* MageComponents.swift */; };
 		39BE5A4C256C40D2007F0724 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BE5A4B256C40D2007F0724 /* AppDelegate.swift */; };
 		39BE5A4E256C40D2007F0724 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 39BE5A4D256C40D2007F0724 /* GameScene.sks */; };
 		39BE5A50256C40D2007F0724 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 39BE5A4F256C40D2007F0724 /* Actions.sks */; };
@@ -23,6 +37,20 @@
 
 /* Begin PBXFileReference section */
 		27E6C74DBAA892679180C3AF /* Pods-Into The Dungeon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Into The Dungeon.release.xcconfig"; path = "Target Support Files/Pods-Into The Dungeon/Pods-Into The Dungeon.release.xcconfig"; sourceTree = "<group>"; };
+		3923F719256DB9380083FF81 /* SpriteComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteComponents.swift; sourceTree = "<group>"; };
+		3923F71C256DB96F0083FF81 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		3923F71E256DB9870083FF81 /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
+		3923F720256DB9940083FF81 /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
+		3923F722256DB9AF0083FF81 /* Warrior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warrior.swift; sourceTree = "<group>"; };
+		3923F724256DB9BD0083FF81 /* Archer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Archer.swift; sourceTree = "<group>"; };
+		3923F726256DB9CB0083FF81 /* EntityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityManager.swift; sourceTree = "<group>"; };
+		3923F728256DB9DC0083FF81 /* Cleric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cleric.swift; sourceTree = "<group>"; };
+		3923F72A256DBA490083FF81 /* HeroComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroComponents.swift; sourceTree = "<group>"; };
+		3923F72C256DBA570083FF81 /* EnemyComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyComponents.swift; sourceTree = "<group>"; };
+		3923F72E256DBA930083FF81 /* WarriorComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarriorComponents.swift; sourceTree = "<group>"; };
+		3923F730256DBAAB0083FF81 /* ArcherComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcherComponents.swift; sourceTree = "<group>"; };
+		3923F732256DBB0C0083FF81 /* ClericComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClericComponents.swift; sourceTree = "<group>"; };
+		3923F734256DBB560083FF81 /* MageComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MageComponents.swift; sourceTree = "<group>"; };
 		39BE5A48256C40D2007F0724 /* Into The Dungeon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Into The Dungeon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39BE5A4B256C40D2007F0724 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39BE5A4D256C40D2007F0724 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -52,6 +80,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3923F718256DB9180083FF81 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3923F719256DB9380083FF81 /* SpriteComponents.swift */,
+				3923F72A256DBA490083FF81 /* HeroComponents.swift */,
+				3923F72C256DBA570083FF81 /* EnemyComponents.swift */,
+				3923F72E256DBA930083FF81 /* WarriorComponents.swift */,
+				3923F730256DBAAB0083FF81 /* ArcherComponents.swift */,
+				3923F732256DBB0C0083FF81 /* ClericComponents.swift */,
+				3923F734256DBB560083FF81 /* MageComponents.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		3923F71B256DB94D0083FF81 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				3923F71C256DB96F0083FF81 /* Card.swift */,
+				3923F71E256DB9870083FF81 /* Hero.swift */,
+				3923F720256DB9940083FF81 /* Enemy.swift */,
+				3923F722256DB9AF0083FF81 /* Warrior.swift */,
+				3923F724256DB9BD0083FF81 /* Archer.swift */,
+				3923F728256DB9DC0083FF81 /* Cleric.swift */,
+				3923F726256DB9CB0083FF81 /* EntityManager.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		39BE5A3F256C40D2007F0724 = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +129,8 @@
 		39BE5A4A256C40D2007F0724 /* Into The Dungeon */ = {
 			isa = PBXGroup;
 			children = (
+				3923F71B256DB94D0083FF81 /* Entity */,
+				3923F718256DB9180083FF81 /* Components */,
 				39BE5A4B256C40D2007F0724 /* AppDelegate.swift */,
 				39BE5A4D256C40D2007F0724 /* GameScene.sks */,
 				39BE5A4F256C40D2007F0724 /* Actions.sks */,
@@ -226,9 +284,23 @@
 			files = (
 				39BE5A52256C40D2007F0724 /* GameScene.swift in Sources */,
 				96371B74256D8A2500210BBE /* FirebaseUtils.swift in Sources */,
+				3923F731256DBAAB0083FF81 /* ArcherComponents.swift in Sources */,
+				3923F733256DBB0C0083FF81 /* ClericComponents.swift in Sources */,
+				3923F727256DB9CB0083FF81 /* EntityManager.swift in Sources */,
+				3923F725256DB9BD0083FF81 /* Archer.swift in Sources */,
+				3923F71D256DB96F0083FF81 /* Card.swift in Sources */,
+				3923F71F256DB9870083FF81 /* Hero.swift in Sources */,
+				3923F71A256DB9380083FF81 /* SpriteComponents.swift in Sources */,
+				3923F735256DBB560083FF81 /* MageComponents.swift in Sources */,
+				3923F72B256DBA490083FF81 /* HeroComponents.swift in Sources */,
+				3923F721256DB9940083FF81 /* Enemy.swift in Sources */,
+				3923F723256DB9AF0083FF81 /* Warrior.swift in Sources */,
 				964487B4256C9A8D00340D98 /* FirstScreenViewController.swift in Sources */,
+				3923F729256DB9DC0083FF81 /* Cleric.swift in Sources */,
 				39BE5A54256C40D2007F0724 /* GameViewController.swift in Sources */,
 				39BE5A4C256C40D2007F0724 /* AppDelegate.swift in Sources */,
+				3923F72F256DBA930083FF81 /* WarriorComponents.swift in Sources */,
+				3923F72D256DBA570083FF81 /* EnemyComponents.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
