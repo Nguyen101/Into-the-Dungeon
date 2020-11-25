@@ -10,6 +10,7 @@ import Foundation
 import SpriteKit
 import GameplayKit
 
+// repsonsible for adding or removing an entity from the scene
 class EntityManager {
     
     var entities = Set<GKEntity>()
@@ -32,5 +33,18 @@ class EntityManager {
             spriteNode.removeFromParent()
         }
         entities.remove(entity)
+    }
+    
+    // spawn 4 enemies for 1-2 players and double when 3-4 players
+    func spawnRegularCamp () {
+        
+    }
+    // 1 boss for 1-2 players and 2 bosses for 3-4 players, each boss will have 4 regular enemies
+    func spawnMiniBossCamp() {
+        
+    }
+    // final boss will have 2 mini boss without any regular, but if 1 mini boss die, he will begin to spawn regular enemies only
+    func spawnFinalBossCamp() {
+        
     }
 }

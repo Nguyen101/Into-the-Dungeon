@@ -9,6 +9,8 @@ import SpriteKit
 import GameplayKit
 
 
+// team 1 = human, team2=  AI
+// this is use to determine players turn
 enum Team:Int {
     case team1 = 1
     case team2 = 2

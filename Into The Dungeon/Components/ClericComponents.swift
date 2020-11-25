@@ -9,6 +9,8 @@
 import SpriteKit
 import GameplayKit
 
+// base components for cleric class
+// need to add more functions: draw card, discard, and play
 class ClericComponents: GKComponent {
     // Base Stats
     var hitPoints: Int = 200

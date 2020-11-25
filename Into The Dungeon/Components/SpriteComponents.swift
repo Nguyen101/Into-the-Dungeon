@@ -9,6 +9,7 @@
 import SpriteKit
 import GameplayKit
 
+// this is for adding the texture for each entity
 class SpriteComponent: GKComponent {
     
     let node: SKSpriteNode

@@ -9,6 +9,8 @@
 import SpriteKit
 import GameplayKit
 
+// all the warrior component is in here
+// need to add more functions: draw card, discard, and play
 class WarriorComponents: GKComponent {
     // Base Stats
     var hitPoints: Int = 250
@@ -27,4 +29,6 @@ class WarriorComponents: GKComponent {
     override func update(deltaTime seconds: TimeInterval) {
         super.update(deltaTime: seconds)
     }
+    
+    
 }

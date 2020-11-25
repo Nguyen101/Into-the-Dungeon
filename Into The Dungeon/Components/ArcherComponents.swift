@@ -9,6 +9,8 @@
 import SpriteKit
 import GameplayKit
 
+// base components for archer class
+// need to add more functions: draw card, discard, and play
 class ArcherComponents: GKComponent {
     // Base Stats
     var hitPoints: Int = 150

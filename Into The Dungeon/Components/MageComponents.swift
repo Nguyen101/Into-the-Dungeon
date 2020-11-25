@@ -9,6 +9,8 @@
 import SpriteKit
 import GameplayKit
 
+// base components for mage class
+// need to add more functions: draw card, discard, and play
 class MageComponents: GKComponent {
     // Base Stats
     var hitPoints: Int = 150
