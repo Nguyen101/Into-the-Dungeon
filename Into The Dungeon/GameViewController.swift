@@ -20,9 +20,7 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         //FirebaseApp.configure()
-        
-        
-        
+
         ref = Database.database().reference()
         
         self.ref.child("games").setValue(1324)
