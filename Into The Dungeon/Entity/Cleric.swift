@@ -7,7 +7,7 @@
 //
 
 import  GameplayKit
-import SpriteKit
+import SpriteKit 
 
 class Cleric: GKEntity {
     init (imageName: String , team: Team) {
