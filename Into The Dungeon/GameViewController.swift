@@ -16,6 +16,10 @@ class GameViewController: UIViewController {
 
     var ref: DatabaseReference!
     
+    var gameID: String? = nil
+    var userName: String? = nil //nae of the user so that we can identify it out of the list of players
+    var players: [Player] = [] //list of players
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,6 +59,20 @@ class GameViewController: UIViewController {
                     view.showsNodeCount = true
                 }
             }
+        }
+    }
+    
+    func updatePlayers() {
+        if let id = gameId, let user = userName {
+            FirebaseUtils.getGameData(gameID: id, completion: {(data) in
+                if let userList = data["users"] as? [String] {
+                    for x in userList {
+                        if let userData = data[x] {
+                            players.append(Player(team: .team1, characterClass: userData["class"], name: userData["name"])
+                        }
+                    }
+                }
+            })
         }
     }
 

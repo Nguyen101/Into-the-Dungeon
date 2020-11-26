@@ -12,7 +12,9 @@ import GameplayKit
 // use for character creation
 class Player {
     var characterClass: Any
-    init (team: Team, characterClass: String) {
+    var name: String
+    init (team: Team, characterClass: String, name: String) {
+        self.name = name
         // a bunch of if statements for the character class
         if(characterClass == "Warrior" ) {
             self.characterClass = Warrior(imageName: "Warrior.png", team: .team1)

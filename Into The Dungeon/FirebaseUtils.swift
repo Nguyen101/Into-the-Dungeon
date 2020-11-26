@@ -25,10 +25,6 @@ class FirebaseUtils {
                 DispatchQueue.main.asynce{
                     completion(gameData)
                 }
-            }else{
-                DispatchQueue.main.async {
-                    completion(nil)
-                }
             }
         })
         
