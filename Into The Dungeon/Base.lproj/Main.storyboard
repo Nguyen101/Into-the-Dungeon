@@ -60,6 +60,7 @@
                                                 <state key="normal" title="Join Game"/>
                                                 <connections>
                                                     <action selector="joinGameButton:" destination="B6O-lb-j4h" eventType="touchUpInside" id="aqD-26-Cg6"/>
+                                                    <segue destination="IjR-vx-nzL" kind="show" identifier="joinGameSegue" id="5Gp-6H-8FD"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMi-9m-0hv">
@@ -67,6 +68,7 @@
                                                 <state key="normal" title="Create Game"/>
                                                 <connections>
                                                     <action selector="createGameButton:" destination="B6O-lb-j4h" eventType="touchUpInside" id="NWj-dz-K6g"/>
+                                                    <segue destination="IjR-vx-nzL" kind="show" identifier="createGameSegue" id="NPm-VS-Sb8"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -99,6 +101,22 @@
             </objects>
             <point key="canvasLocation" x="-599" y="90"/>
         </scene>
+        <!--Character Selection Controller-->
+        <scene sceneID="jbC-ZF-atM">
+            <objects>
+                <viewController id="IjR-vx-nzL" customClass="CharacterSelectionController" customModule="Into_The_Dungeon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4No-Wq-Y3V">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="9NL-kB-TCE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="K03-uM-55V"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZP-SO-S0b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="88" y="100"/>
+        </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
@@ -112,9 +130,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="141" y="80"/>
+            <point key="canvasLocation" x="772" y="90"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="5Gp-6H-8FD"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
