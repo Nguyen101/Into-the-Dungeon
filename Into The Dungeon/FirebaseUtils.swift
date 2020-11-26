@@ -22,7 +22,7 @@ class FirebaseUtils {
         self.ref.child("games").child(gameID).observeSingleEvent(of: .value, with: { (sanpshot) in
             if let data = sanpshot.value as? Any {
                 gameData = data
-                DispatchQueue.main.asynce{
+                DispatchQueue.main.async{
                     completion(gameData)
                 }
             }
@@ -51,7 +51,7 @@ class FirebaseUtils {
         self.ref.child("games").child(gameID).child(userName).setValue(userData)
     }
     
-    static func getUserName(gameID: String, userName: String, completion @escaping (String?) -> Void) {
+    static func getUserName(gameID: String, userName: String, completion: @escaping (String?) -> Void) {
         var name: String? = nil
         
         self.ref.child("games").child(gameID).child(userName).child("name").observeSingleEvent(of: .value, with: { (sanpshot) in
@@ -63,7 +63,6 @@ class FirebaseUtils {
                 }
             }
         })
-        return name
     }
     
     /*
@@ -73,7 +72,7 @@ class FirebaseUtils {
         self.ref.child("games").observeSingleEvent(of: .value, with: { (snapshot) in
             if let data = snapshot.value as? [String] {
                 DispatchQueue.main.async {
-                    completion(name)
+                    completion(data)
                 }
             }
         })

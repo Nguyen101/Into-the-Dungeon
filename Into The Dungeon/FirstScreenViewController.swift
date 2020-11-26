@@ -62,10 +62,13 @@ class FirstScreenViewController: UIViewController {
     func isValidInput() -> Bool {
         guard let gameId = gameIDTextField.text, let userName = userNameTextField.text else {
             
-            alertUser(title: "Wrong input", message: "please provide valid inputs for the game id and the username")
-            
             return false
         }
+        
+        if gameId == "" || userName == "" {
+            return false
+        }
+        
         return true
     }
     
@@ -87,11 +90,13 @@ class FirstScreenViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
+            if !isValidInput() {
+                alertUser(title: "Wrong input", message: "please provide valid inputs for the game id and the username")
+                return
+            }
             if identifier == "joinGameSegue" {
                 //todo make sure that the game id is in the database
-                if !isValidInput() {
-                    return
-                }
+                
                 
                 addPlayerToGame(isInCharge: false)
                 
@@ -100,12 +105,9 @@ class FirstScreenViewController: UIViewController {
                     vc.userName = userName
                 }
                 
-            }else if let identifier == "createGameSegue" {
-                if !isValidInput() {
-                    return
-                }
+            }else if identifier == "createGameSegue" {
                 
-                let users: [String] = []
+                var users: [String] = []
                 
                 
                 if let userName = userNameTextField.text {
