@@ -17,33 +17,41 @@ class FirebaseUtils {
         
     }
     
-    static func getGameData(gameID: String) -> Any?{
+    static func getGameData(gameID: String, completion: @escaping (Any?) -> Void) {
         var gameData: Any? = nil
         self.ref.child("games").child(gameID).observeSingleEvent(of: .value, with: { (sanpshot) in
             if let data = sanpshot.value as? Any {
                 gameData = data
+                DispatchQueue.main.async{
+                    completion(gameData)
+                }
             }
         })
         
-        return gameData
     }
     
-    static func getUserData(gameID: String, userName: String) -> Any?{
+    static func setGameData(gameID: String, gameData: Any){
+        self.ref.child("games").child(gameID).setValue(gameData)
+    }
+    
+    static func getUserData(gameID: String, userName: String, completion: @escaping (Any?) -> Void) -> Void{
         var userData: Any? = nil
         
         self.ref.child("games").child(gameID).child(userName).observeSingleEvent(of: .value, with: { (sanpshot) in
             if let data = sanpshot.value as? Any {
                 userData = data
+                DispatchQueue.main.async {
+                    completion(userData)
+                }
             }
         })
-        return userData
     }
     
     static func setUserData(gameID: String, userName: String, userData: Any){
         self.ref.child("games").child(gameID).child(userName).setValue(userData)
     }
     
-    static func getUserName(gameID: String, userName: String) -> String? {
+    static func getUserName(gameID: String, userName: String, completion: @escaping (String?) -> Void) {
         var name: String? = nil
         
         self.ref.child("games").child(gameID).child(userName).child("name").observeSingleEvent(of: .value, with: { (sanpshot) in
@@ -51,10 +59,29 @@ class FirebaseUtils {
                 print("test: " + data)
                 name = data
                 DispatchQueue.main.async {
-                    
+                    completion(name)
                 }
             }
         })
-        return name
+    }
+    
+    /*
+     returns a list of the players in the game
+     */
+    static func getUsers(gameID: String, completion: @escaping ([String]) -> Void){
+        self.ref.child("games").observeSingleEvent(of: .value, with: { (snapshot) in
+            if let data = snapshot.value as? [String] {
+                DispatchQueue.main.async {
+                    completion(data)
+                }
+            }
+        })
+    }
+    
+    /*
+     sets the list of users in the game
+     */
+    static func setUsers(gameID: String, users: [String]){
+        self.ref.child("games").child(gameID).setValue(users)
     }
 }

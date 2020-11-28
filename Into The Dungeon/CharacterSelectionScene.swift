@@ -16,6 +16,9 @@ class CharacterSelectionController: UIViewController {
 
     var ref: DatabaseReference!
     
+    var gameID: String? = nil
+    var userName: String? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

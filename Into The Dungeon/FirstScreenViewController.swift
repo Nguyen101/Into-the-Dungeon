@@ -22,13 +22,10 @@ class FirstScreenViewController: UIViewController {
     @IBOutlet weak var userNameTextField: UITextField!
     
     @IBAction func joinGameButton(_ sender: Any) {
-        //todo make sure that the game id is in the database
-        
-        addPlayerToGame(isInCharge: false)
     }
     
     @IBAction func createGameButton(_ sender: Any) {
-        addPlayerToGame(isInCharge: true)
+        
     
     }
     
@@ -60,6 +57,22 @@ class FirstScreenViewController: UIViewController {
     }
     
     /*
+     checks to seee if the text fields have valid inputs
+     */
+    func isValidInput() -> Bool {
+        guard let gameId = gameIDTextField.text, let userName = userNameTextField.text else {
+            
+            return false
+        }
+        
+        if gameId == "" || userName == "" {
+            return false
+        }
+        
+        return true
+    }
+    
+    /*
      alerts the user
      
      parameters: title: a string which is the title
@@ -73,5 +86,49 @@ class FirstScreenViewController: UIViewController {
         
         present(alertController, animated: true, completion: { () -> Void in
         })
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if !isValidInput() {
+                alertUser(title: "Wrong input", message: "please provide valid inputs for the game id and the username")
+                return
+            }
+            if identifier == "joinGameSegue" {
+                //todo make sure that the game id is in the database
+                
+                
+                addPlayerToGame(isInCharge: false)
+                
+                if let vc = segue.destination as? CharacterSelectionController {
+                    vc.gameID = gameID
+                    vc.userName = userName
+                }
+                
+            }else if identifier == "createGameSegue" {
+                
+                var users: [String] = []
+                
+                
+                if let userName = userNameTextField.text {
+                    users.append(userName)
+                }
+                
+                let data = [
+                    "users": users
+                ]
+                
+                FirebaseUtils.setGameData(gameID: gameIDTextField.text!, gameData: data)
+                
+                addPlayerToGame(isInCharge: true)
+                
+                if let vc = segue.destination as? CharacterSelectionController {
+                    vc.gameID = gameID
+                    vc.userName = userName
+                }
+            }
+            
+        }
+        
     }
 }
