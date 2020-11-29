@@ -69,7 +69,10 @@ class FirebaseUtils {
      returns a list of the players in the game
      */
     static func getUsers(gameID: String, completion: @escaping ([String]) -> Void){
-        self.ref.child("games").observeSingleEvent(of: .value, with: { (snapshot) in
+        self.ref.child("games").child(gameID).child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            print("TEST 4")
+            print(snapshot.value)
             if let data = snapshot.value as? [String] {
                 DispatchQueue.main.async {
                     completion(data)
@@ -82,6 +85,6 @@ class FirebaseUtils {
      sets the list of users in the game
      */
     static func setUsers(gameID: String, users: [String]){
-        self.ref.child("games").child(gameID).setValue(users)
+        self.ref.child("games").child(gameID).child("users").setValue(users)
     }
 }

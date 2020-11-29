@@ -54,6 +54,18 @@ class FirstScreenViewController: UIViewController {
         ] as [String : Any]
             
         FirebaseUtils.setUserData(gameID: gameID, userName: userName, userData: data)
+        
+        FirebaseUtils.getUsers(gameID: gameID, completion: {(users) in
+            print("adding user to list...")
+            if users.contains(userName) {
+                print("user already in game...")
+            }else{
+                var userList = users
+                userList.append(userName)
+                print(userList)
+                FirebaseUtils.setUsers(gameID: self.gameID, users: userList)
+            }
+        })
     }
     
     /*
@@ -105,13 +117,14 @@ class FirstScreenViewController: UIViewController {
                     vc.userName = userName
                 }
                 
+                testFirebase()
+                
             }else if identifier == "createGameSegue" {
                 
                 var users: [String] = []
                 
-                
-                if let userName = userNameTextField.text {
-                    users.append(userName)
+                if let name = userNameTextField.text {
+                    users.append(name)
                 }
                 
                 let data = [
@@ -130,5 +143,23 @@ class FirstScreenViewController: UIViewController {
             
         }
         
+    }
+    
+    func testFirebase() {
+        FirebaseUtils.getGameData(gameID: gameID, completion: {(data) in
+            print("TEST 1")
+            if let gameData = data as? NSDictionary{
+                print("TEST 2")
+                if let users = gameData["users"] as? [String] {
+                    print(users)
+                }
+                if let user = gameData[self.userName] as? NSDictionary {
+                    print("TEST 3")
+                    if let name = user["name"] as? String {
+                        print("TEST " + name)
+                    }
+                }
+            }
+        })
     }
 }
