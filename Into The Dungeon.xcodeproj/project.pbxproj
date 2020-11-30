@@ -28,6 +28,13 @@
 		964915862572C80A0071F58C /* Guard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964915852572C80A0071F58C /* Guard.swift */; };
 		9649158A2572C9630071F58C /* GuardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964915892572C9620071F58C /* GuardComponent.swift */; };
 		9649158D2572CA280071F58C /* GreatLancer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9649158C2572CA280071F58C /* GreatLancer.swift */; };
+		96E5ADFF257466F3003C4CEB /* CampViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5ADFE257466F3003C4CEB /* CampViewController.swift */; };
+		96E5AE0225746787003C4CEB /* CampScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5AE0125746787003C4CEB /* CampScene.swift */; };
+		96E5AE0525746A8A003C4CEB /* GameEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5AE0425746A8A003C4CEB /* GameEndViewController.swift */; };
+		96E5AE0825746B6B003C4CEB /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5AE0725746B6B003C4CEB /* ShopViewController.swift */; };
+		96E5AE0B25746C26003C4CEB /* ShopScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5AE0A25746C26003C4CEB /* ShopScene.swift */; };
+		96E5AE0E25746CB5003C4CEB /* BatteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5AE0D25746CB5003C4CEB /* BatteViewController.swift */; };
+		96E5AE1125746D52003C4CEB /* BattleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5AE1025746D52003C4CEB /* BattleScene.swift */; };
 		BC03B445256E0D3600A51A2D /* TeamComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC03B444256E0D3600A51A2D /* TeamComponent.swift */; };
 		BC03B458256E3B2800A51A2D /* CharacterSelectionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC03B457256E3B2800A51A2D /* CharacterSelectionScene.swift */; };
 		BC03B45B256E3DCB00A51A2D /* CardComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC03B45A256E3DCB00A51A2D /* CardComponents.swift */; };
@@ -67,6 +74,13 @@
 		964915852572C80A0071F58C /* Guard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guard.swift; sourceTree = "<group>"; };
 		964915892572C9620071F58C /* GuardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuardComponent.swift; sourceTree = "<group>"; };
 		9649158C2572CA280071F58C /* GreatLancer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreatLancer.swift; sourceTree = "<group>"; };
+		96E5ADFE257466F3003C4CEB /* CampViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampViewController.swift; sourceTree = "<group>"; };
+		96E5AE0125746787003C4CEB /* CampScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampScene.swift; sourceTree = "<group>"; };
+		96E5AE0425746A8A003C4CEB /* GameEndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEndViewController.swift; sourceTree = "<group>"; };
+		96E5AE0725746B6B003C4CEB /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		96E5AE0A25746C26003C4CEB /* ShopScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopScene.swift; sourceTree = "<group>"; };
+		96E5AE0D25746CB5003C4CEB /* BatteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteViewController.swift; sourceTree = "<group>"; };
+		96E5AE1025746D52003C4CEB /* BattleScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleScene.swift; sourceTree = "<group>"; };
 		BC03B444256E0D3600A51A2D /* TeamComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamComponent.swift; sourceTree = "<group>"; };
 		BC03B457256E3B2800A51A2D /* CharacterSelectionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectionScene.swift; sourceTree = "<group>"; };
 		BC03B45A256E3DCB00A51A2D /* CardComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardComponents.swift; sourceTree = "<group>"; };
@@ -161,6 +175,13 @@
 				BC03B464256E48D600A51A2D /* CharacterCreationScene.sks */,
 				964487B3256C9A8D00340D98 /* FirstScreenViewController.swift */,
 				96371B73256D8A2500210BBE /* FirebaseUtils.swift */,
+				96E5ADFE257466F3003C4CEB /* CampViewController.swift */,
+				96E5AE0125746787003C4CEB /* CampScene.swift */,
+				96E5AE0425746A8A003C4CEB /* GameEndViewController.swift */,
+				96E5AE0725746B6B003C4CEB /* ShopViewController.swift */,
+				96E5AE0A25746C26003C4CEB /* ShopScene.swift */,
+				96E5AE0D25746CB5003C4CEB /* BatteViewController.swift */,
+				96E5AE1025746D52003C4CEB /* BattleScene.swift */,
 			);
 			path = "Into The Dungeon";
 			sourceTree = "<group>";
@@ -305,20 +326,27 @@
 				BC45922E256E788F008F2B2F /* Cleric.swift in Sources */,
 				BC03B45B256E3DCB00A51A2D /* CardComponents.swift in Sources */,
 				96371B74256D8A2500210BBE /* FirebaseUtils.swift in Sources */,
+				96E5ADFF257466F3003C4CEB /* CampViewController.swift in Sources */,
 				3923F731256DBAAB0083FF81 /* ArcherComponents.swift in Sources */,
+				96E5AE0525746A8A003C4CEB /* GameEndViewController.swift in Sources */,
+				96E5AE0E25746CB5003C4CEB /* BatteViewController.swift in Sources */,
 				3923F733256DBB0C0083FF81 /* ClericComponents.swift in Sources */,
 				BC459231256E789A008F2B2F /* Mage.swift in Sources */,
 				BC03B445256E0D3600A51A2D /* TeamComponent.swift in Sources */,
 				BC459228256E7873008F2B2F /* Warrior.swift in Sources */,
+				96E5AE0B25746C26003C4CEB /* ShopScene.swift in Sources */,
 				BC03B458256E3B2800A51A2D /* CharacterSelectionScene.swift in Sources */,
+				96E5AE0825746B6B003C4CEB /* ShopViewController.swift in Sources */,
 				BC03B46D256E4C7600A51A2D /* Enemy.swift in Sources */,
 				9649158A2572C9630071F58C /* GuardComponent.swift in Sources */,
 				3923F727256DB9CB0083FF81 /* EntityManager.swift in Sources */,
 				3923F71A256DB9380083FF81 /* SpriteComponents.swift in Sources */,
 				3923F735256DBB560083FF81 /* MageComponents.swift in Sources */,
 				3923F723256DB9AF0083FF81 /* Player.swift in Sources */,
+				96E5AE0225746787003C4CEB /* CampScene.swift in Sources */,
 				964915862572C80A0071F58C /* Guard.swift in Sources */,
 				964487B4256C9A8D00340D98 /* FirstScreenViewController.swift in Sources */,
+				96E5AE1125746D52003C4CEB /* BattleScene.swift in Sources */,
 				39BE5A54256C40D2007F0724 /* GameViewController.swift in Sources */,
 				BC45922B256E7884008F2B2F /* Archer.swift in Sources */,
 				9649158D2572CA280071F58C /* GreatLancer.swift in Sources */,

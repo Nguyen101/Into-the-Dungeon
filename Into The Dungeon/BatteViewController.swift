@@ -1,12 +1,10 @@
 //
-//  CharacterSelectionController.swift
+//  BatteViewController.swift
 //  Into The Dungeon
 //
-//  Created by Nguyen, Vy Luong on 11/24/20.
+//  Created by Latham, Nicholas De Artola on 11/29/20.
 //  Copyright © 2020 Vy Nguyen. All rights reserved.
 //
-
-import Foundation
 
 import UIKit
 import SpriteKit
@@ -14,7 +12,7 @@ import GameplayKit
 import FirebaseDatabase
 import Firebase
 
-class CharacterSelectionController: UIViewController {
+class BattleViewController: UIViewController {
 
     
     var gameID: String? = nil
@@ -26,7 +24,7 @@ class CharacterSelectionController: UIViewController {
         
         // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
         // including entities and graphs.
-        if let scene = GKScene(fileNamed: "CharacterSelectionScene") {
+        if let scene = GKScene(fileNamed: "BattleScene") {
             
             // Get the SKScene from the loaded GKScene
             if let sceneNode = scene.rootNode as! GameScene? {
@@ -67,3 +65,5 @@ class CharacterSelectionController: UIViewController {
         return true
     }
 }
+
+
