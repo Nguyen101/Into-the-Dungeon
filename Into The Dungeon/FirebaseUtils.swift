@@ -87,4 +87,8 @@ class FirebaseUtils {
     static func setUsers(gameID: String, users: [String]){
         self.ref.child("games").child(gameID).child("users").setValue(users)
     }
+    
+    static func setClassForUser(gameID: String, userName: String, className: String){
+        self.ref.child("games").child(gameID).child(userName).child("class").setValue(className)
+    }
 }
