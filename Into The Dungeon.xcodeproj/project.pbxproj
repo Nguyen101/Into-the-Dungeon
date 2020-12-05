@@ -45,6 +45,7 @@
 		BC45922B256E7884008F2B2F /* Archer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45922A256E7884008F2B2F /* Archer.swift */; };
 		BC45922E256E788F008F2B2F /* Cleric.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45922D256E788F008F2B2F /* Cleric.swift */; };
 		BC459231256E789A008F2B2F /* Mage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC459230256E789A008F2B2F /* Mage.swift */; };
+		BC9ECE56257BFD29004CBD3F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9ECE55257BFD29004CBD3F /* Card.swift */; };
 		F81646979088E355B297EC73 /* Pods_Into_The_Dungeon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C3F35511275F9D40E9760CA /* Pods_Into_The_Dungeon.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,7 @@
 		BC45922A256E7884008F2B2F /* Archer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Archer.swift; sourceTree = "<group>"; };
 		BC45922D256E788F008F2B2F /* Cleric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cleric.swift; sourceTree = "<group>"; };
 		BC459230256E789A008F2B2F /* Mage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mage.swift; sourceTree = "<group>"; };
+		BC9ECE55257BFD29004CBD3F /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		F4530EACA850101A1B0F400C /* Pods-Into The Dungeon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Into The Dungeon.debug.xcconfig"; path = "Target Support Files/Pods-Into The Dungeon/Pods-Into The Dungeon.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,6 +135,7 @@
 				BC459230256E789A008F2B2F /* Mage.swift */,
 				964915852572C80A0071F58C /* Guard.swift */,
 				9649158C2572CA280071F58C /* GreatLancer.swift */,
+				BC9ECE55257BFD29004CBD3F /* Card.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				BC03B45E256E45F600A51A2D /* CharacterSelectionController.swift in Sources */,
 				39BE5A4C256C40D2007F0724 /* AppDelegate.swift in Sources */,
 				3923F72F256DBA930083FF81 /* WarriorComponents.swift in Sources */,
+				BC9ECE56257BFD29004CBD3F /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
