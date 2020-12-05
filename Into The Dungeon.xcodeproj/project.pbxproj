@@ -15,8 +15,6 @@
 		3923F733256DBB0C0083FF81 /* ClericComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3923F732256DBB0C0083FF81 /* ClericComponents.swift */; };
 		3923F735256DBB560083FF81 /* MageComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3923F734256DBB560083FF81 /* MageComponents.swift */; };
 		39BE5A4C256C40D2007F0724 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BE5A4B256C40D2007F0724 /* AppDelegate.swift */; };
-		39BE5A4E256C40D2007F0724 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 39BE5A4D256C40D2007F0724 /* GameScene.sks */; };
-		39BE5A50256C40D2007F0724 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 39BE5A4F256C40D2007F0724 /* Actions.sks */; };
 		39BE5A52256C40D2007F0724 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BE5A51256C40D2007F0724 /* GameScene.swift */; };
 		39BE5A54256C40D2007F0724 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BE5A53256C40D2007F0724 /* GameViewController.swift */; };
 		39BE5A57256C40D2007F0724 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39BE5A55256C40D2007F0724 /* Main.storyboard */; };
@@ -33,7 +31,7 @@
 		96E5AE0525746A8A003C4CEB /* GameEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5AE0425746A8A003C4CEB /* GameEndViewController.swift */; };
 		96E5AE0825746B6B003C4CEB /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5AE0725746B6B003C4CEB /* ShopViewController.swift */; };
 		96E5AE0B25746C26003C4CEB /* ShopScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5AE0A25746C26003C4CEB /* ShopScene.swift */; };
-		96E5AE0E25746CB5003C4CEB /* BatteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5AE0D25746CB5003C4CEB /* BatteViewController.swift */; };
+		96E5AE0E25746CB5003C4CEB /* BattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5AE0D25746CB5003C4CEB /* BattleViewController.swift */; };
 		96E5AE1125746D52003C4CEB /* BattleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5AE1025746D52003C4CEB /* BattleScene.swift */; };
 		BC03B445256E0D3600A51A2D /* TeamComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC03B444256E0D3600A51A2D /* TeamComponent.swift */; };
 		BC03B458256E3B2800A51A2D /* CharacterSelectionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC03B457256E3B2800A51A2D /* CharacterSelectionScene.swift */; };
@@ -59,8 +57,6 @@
 		3923F734256DBB560083FF81 /* MageComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MageComponents.swift; sourceTree = "<group>"; };
 		39BE5A48256C40D2007F0724 /* Into The Dungeon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Into The Dungeon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39BE5A4B256C40D2007F0724 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		39BE5A4D256C40D2007F0724 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		39BE5A4F256C40D2007F0724 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		39BE5A51256C40D2007F0724 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		39BE5A53256C40D2007F0724 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		39BE5A56256C40D2007F0724 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -79,7 +75,7 @@
 		96E5AE0425746A8A003C4CEB /* GameEndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEndViewController.swift; sourceTree = "<group>"; };
 		96E5AE0725746B6B003C4CEB /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		96E5AE0A25746C26003C4CEB /* ShopScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopScene.swift; sourceTree = "<group>"; };
-		96E5AE0D25746CB5003C4CEB /* BatteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteViewController.swift; sourceTree = "<group>"; };
+		96E5AE0D25746CB5003C4CEB /* BattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleViewController.swift; sourceTree = "<group>"; };
 		96E5AE1025746D52003C4CEB /* BattleScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleScene.swift; sourceTree = "<group>"; };
 		BC03B444256E0D3600A51A2D /* TeamComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamComponent.swift; sourceTree = "<group>"; };
 		BC03B457256E3B2800A51A2D /* CharacterSelectionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectionScene.swift; sourceTree = "<group>"; };
@@ -162,8 +158,6 @@
 				3923F71B256DB94D0083FF81 /* Entity */,
 				3923F718256DB9180083FF81 /* Components */,
 				39BE5A4B256C40D2007F0724 /* AppDelegate.swift */,
-				39BE5A4D256C40D2007F0724 /* GameScene.sks */,
-				39BE5A4F256C40D2007F0724 /* Actions.sks */,
 				39BE5A51256C40D2007F0724 /* GameScene.swift */,
 				39BE5A53256C40D2007F0724 /* GameViewController.swift */,
 				BC03B457256E3B2800A51A2D /* CharacterSelectionScene.swift */,
@@ -180,7 +174,7 @@
 				96E5AE0425746A8A003C4CEB /* GameEndViewController.swift */,
 				96E5AE0725746B6B003C4CEB /* ShopViewController.swift */,
 				96E5AE0A25746C26003C4CEB /* ShopScene.swift */,
-				96E5AE0D25746CB5003C4CEB /* BatteViewController.swift */,
+				96E5AE0D25746CB5003C4CEB /* BattleViewController.swift */,
 				96E5AE1025746D52003C4CEB /* BattleScene.swift */,
 			);
 			path = "Into The Dungeon";
@@ -264,10 +258,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				39BE5A57256C40D2007F0724 /* Main.storyboard in Resources */,
-				39BE5A4E256C40D2007F0724 /* GameScene.sks in Resources */,
 				39BE5A59256C40D4007F0724 /* Assets.xcassets in Resources */,
 				39BE5A5C256C40D4007F0724 /* LaunchScreen.storyboard in Resources */,
-				39BE5A50256C40D2007F0724 /* Actions.sks in Resources */,
 				39BE5A66256C4A43007F0724 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,7 +320,7 @@
 				96E5ADFF257466F3003C4CEB /* CampViewController.swift in Sources */,
 				3923F731256DBAAB0083FF81 /* ArcherComponents.swift in Sources */,
 				96E5AE0525746A8A003C4CEB /* GameEndViewController.swift in Sources */,
-				96E5AE0E25746CB5003C4CEB /* BatteViewController.swift in Sources */,
+				96E5AE0E25746CB5003C4CEB /* BattleViewController.swift in Sources */,
 				3923F733256DBB0C0083FF81 /* ClericComponents.swift in Sources */,
 				BC459231256E789A008F2B2F /* Mage.swift in Sources */,
 				BC03B445256E0D3600A51A2D /* TeamComponent.swift in Sources */,
