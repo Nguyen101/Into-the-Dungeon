@@ -35,7 +35,6 @@
 		96E5AE1125746D52003C4CEB /* BattleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5AE1025746D52003C4CEB /* BattleScene.swift */; };
 		BC03B445256E0D3600A51A2D /* TeamComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC03B444256E0D3600A51A2D /* TeamComponent.swift */; };
 		BC03B458256E3B2800A51A2D /* CharacterSelectionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC03B457256E3B2800A51A2D /* CharacterSelectionScene.swift */; };
-		BC03B45B256E3DCB00A51A2D /* CardComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC03B45A256E3DCB00A51A2D /* CardComponents.swift */; };
 		BC03B45E256E45F600A51A2D /* CharacterSelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC03B45D256E45F600A51A2D /* CharacterSelectionController.swift */; };
 		BC03B46D256E4C7600A51A2D /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC03B46C256E4C7600A51A2D /* Enemy.swift */; };
 		BC459228256E7873008F2B2F /* Warrior.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC459227256E7873008F2B2F /* Warrior.swift */; };
@@ -79,7 +78,6 @@
 		96E5AE1025746D52003C4CEB /* BattleScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleScene.swift; sourceTree = "<group>"; };
 		BC03B444256E0D3600A51A2D /* TeamComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamComponent.swift; sourceTree = "<group>"; };
 		BC03B457256E3B2800A51A2D /* CharacterSelectionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectionScene.swift; sourceTree = "<group>"; };
-		BC03B45A256E3DCB00A51A2D /* CardComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardComponents.swift; sourceTree = "<group>"; };
 		BC03B45D256E45F600A51A2D /* CharacterSelectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectionController.swift; sourceTree = "<group>"; };
 		BC03B46C256E4C7600A51A2D /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		BC459227256E7873008F2B2F /* Warrior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warrior.swift; sourceTree = "<group>"; };
@@ -106,7 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				3923F719256DB9380083FF81 /* SpriteComponents.swift */,
-				BC03B45A256E3DCB00A51A2D /* CardComponents.swift */,
 				3923F72E256DBA930083FF81 /* WarriorComponents.swift */,
 				BC03B444256E0D3600A51A2D /* TeamComponent.swift */,
 				3923F730256DBAAB0083FF81 /* ArcherComponents.swift */,
@@ -120,16 +117,15 @@
 		3923F71B256DB94D0083FF81 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				3923F722256DB9AF0083FF81 /* Player.swift */,
-				BC03B46C256E4C7600A51A2D /* Enemy.swift */,
 				3923F726256DB9CB0083FF81 /* EntityManager.swift */,
+				3923F722256DB9AF0083FF81 /* Player.swift */,
 				BC459227256E7873008F2B2F /* Warrior.swift */,
 				BC45922A256E7884008F2B2F /* Archer.swift */,
 				BC45922D256E788F008F2B2F /* Cleric.swift */,
 				BC459230256E789A008F2B2F /* Mage.swift */,
+				BC03B46C256E4C7600A51A2D /* Enemy.swift */,
 				964915852572C80A0071F58C /* Guard.swift */,
 				9649158C2572CA280071F58C /* GreatLancer.swift */,
-				BC9ECE55257BFD29004CBD3F /* Card.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -159,6 +155,7 @@
 				3923F718256DB9180083FF81 /* Components */,
 				39BE5A4B256C40D2007F0724 /* AppDelegate.swift */,
 				39BE5A51256C40D2007F0724 /* GameScene.swift */,
+				BC9ECE55257BFD29004CBD3F /* Card.swift */,
 				39BE5A53256C40D2007F0724 /* GameViewController.swift */,
 				BC03B457256E3B2800A51A2D /* CharacterSelectionScene.swift */,
 				BC03B45D256E45F600A51A2D /* CharacterSelectionController.swift */,
@@ -315,7 +312,6 @@
 			files = (
 				39BE5A52256C40D2007F0724 /* GameScene.swift in Sources */,
 				BC45922E256E788F008F2B2F /* Cleric.swift in Sources */,
-				BC03B45B256E3DCB00A51A2D /* CardComponents.swift in Sources */,
 				96371B74256D8A2500210BBE /* FirebaseUtils.swift in Sources */,
 				96E5ADFF257466F3003C4CEB /* CampViewController.swift in Sources */,
 				3923F731256DBAAB0083FF81 /* ArcherComponents.swift in Sources */,
