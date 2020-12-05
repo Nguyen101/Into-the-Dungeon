@@ -45,12 +45,14 @@ class FirstScreenViewController: UIViewController {
         
         self.userName = userName
         self.gameID = gameId
+        let cards: [String] = []
             
         let data = [
             "name": userName,
             "inCharge": isInCharge,
             "class": "none",
-            "hitpoints": 12
+            "hitpoints": 12,
+            "cards": cards
         ] as [String : Any]
             
         FirebaseUtils.setUserData(gameID: gameID, userName: userName, userData: data)
