@@ -39,7 +39,6 @@
 		BC03B458256E3B2800A51A2D /* CharacterSelectionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC03B457256E3B2800A51A2D /* CharacterSelectionScene.swift */; };
 		BC03B45B256E3DCB00A51A2D /* CardComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC03B45A256E3DCB00A51A2D /* CardComponents.swift */; };
 		BC03B45E256E45F600A51A2D /* CharacterSelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC03B45D256E45F600A51A2D /* CharacterSelectionController.swift */; };
-		BC03B465256E48D600A51A2D /* CharacterCreationScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BC03B464256E48D600A51A2D /* CharacterCreationScene.sks */; };
 		BC03B46D256E4C7600A51A2D /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC03B46C256E4C7600A51A2D /* Enemy.swift */; };
 		BC459228256E7873008F2B2F /* Warrior.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC459227256E7873008F2B2F /* Warrior.swift */; };
 		BC45922B256E7884008F2B2F /* Archer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC45922A256E7884008F2B2F /* Archer.swift */; };
@@ -86,7 +85,6 @@
 		BC03B457256E3B2800A51A2D /* CharacterSelectionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectionScene.swift; sourceTree = "<group>"; };
 		BC03B45A256E3DCB00A51A2D /* CardComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardComponents.swift; sourceTree = "<group>"; };
 		BC03B45D256E45F600A51A2D /* CharacterSelectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectionController.swift; sourceTree = "<group>"; };
-		BC03B464256E48D600A51A2D /* CharacterCreationScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CharacterCreationScene.sks; sourceTree = "<group>"; };
 		BC03B46C256E4C7600A51A2D /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		BC459227256E7873008F2B2F /* Warrior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warrior.swift; sourceTree = "<group>"; };
 		BC45922A256E7884008F2B2F /* Archer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Archer.swift; sourceTree = "<group>"; };
@@ -175,7 +173,6 @@
 				39BE5A65256C4A43007F0724 /* GoogleService-Info.plist */,
 				39BE5A5A256C40D4007F0724 /* LaunchScreen.storyboard */,
 				39BE5A5D256C40D4007F0724 /* Info.plist */,
-				BC03B464256E48D600A51A2D /* CharacterCreationScene.sks */,
 				964487B3256C9A8D00340D98 /* FirstScreenViewController.swift */,
 				96371B73256D8A2500210BBE /* FirebaseUtils.swift */,
 				96E5ADFE257466F3003C4CEB /* CampViewController.swift */,
@@ -272,7 +269,6 @@
 				39BE5A5C256C40D4007F0724 /* LaunchScreen.storyboard in Resources */,
 				39BE5A50256C40D2007F0724 /* Actions.sks in Resources */,
 				39BE5A66256C4A43007F0724 /* GoogleService-Info.plist in Resources */,
-				BC03B465256E48D600A51A2D /* CharacterCreationScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

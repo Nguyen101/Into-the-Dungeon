@@ -67,7 +67,6 @@ class Card: SKSpriteNode {
         case .chaosWind:
             frontTexture = SKTexture(imageNamed: "card_mage_chaosWind")
         }
-        
         super.init(texture: frontTexture, color: .clear, size: frontTexture.size())
         addChild(damageLabel)
     }
