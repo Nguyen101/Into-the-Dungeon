@@ -22,6 +22,7 @@ class CharacterSelectionController: UIViewController {
     var classChosen: String? = nil
     
     @IBOutlet weak var classChosenLabel: UILabel!
+    @IBOutlet weak var otherPlayersLabel: UILabel!
     
     @IBAction func ClericButton(_ sender: Any) {
         classChosenLabel.text = "Class Chosen: Cleric"
@@ -49,6 +50,7 @@ class CharacterSelectionController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        showOtherPlayers()
         
         // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
         // including entities and graphs.
@@ -75,6 +77,24 @@ class CharacterSelectionController: UIViewController {
 //                }
 //            }
 //        }
+        
+        
+    }
+    
+    func showOtherPlayers(){
+        FirebaseUtils.getUsers(gameID: gameID!, completion: {(users) in
+            self.otherPlayersLabel.numberOfLines = 0
+            for user in users {
+                FirebaseUtils.getClassForUser(gameID: self.gameID!, userName: user, completion: {(className) in
+                    if let text = self.otherPlayersLabel.text {
+                        self.otherPlayersLabel.text = text + "\n\(user): \(className)"
+                    }else{
+                        self.otherPlayersLabel.text = "\(user): \(className)\n"
+                    }
+                })
+            }
+            
+        })
     }
 
     override var shouldAutorotate: Bool {
@@ -124,7 +144,6 @@ class CharacterSelectionController: UIViewController {
                 return
             }
             if identifier == "ContinueToGameSegue" {
-                //todo make sure that the game id is in the database
                 if let className = classChosen, let id = gameID, let name = userName {
                     var cards: [String] = getInitialInitialCardsForPlayer(className: className)
                     FirebaseUtils.setClassForUser(gameID: id, userName: name, className: className)

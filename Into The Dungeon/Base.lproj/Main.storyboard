@@ -176,15 +176,23 @@
                                     <segue destination="BV1-FR-VrT" kind="show" identifier="ContinueToGameSegue" id="Mkp-MW-DvT"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other Players:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ld1-2X-hM5">
+                                <rect key="frame" x="32" y="454.5" width="107.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9NL-kB-TCE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Ld1-2X-hM5" firstAttribute="leading" secondItem="9NL-kB-TCE" secondAttribute="leading" constant="32" id="1hU-Id-RtG"/>
                             <constraint firstItem="mFD-Qk-9uw" firstAttribute="top" secondItem="8AR-vf-DMV" secondAttribute="bottom" constant="32" id="61T-aK-gOs"/>
                             <constraint firstItem="JXp-AZ-ZDG" firstAttribute="centerX" secondItem="4No-Wq-Y3V" secondAttribute="centerX" id="CYG-oU-N79"/>
                             <constraint firstItem="5h1-na-Tc3" firstAttribute="centerX" secondItem="4No-Wq-Y3V" secondAttribute="centerX" id="Da6-uI-Plq"/>
                             <constraint firstItem="5h1-na-Tc3" firstAttribute="top" secondItem="JXp-AZ-ZDG" secondAttribute="bottom" constant="32" id="Txi-3U-0cY"/>
                             <constraint firstItem="8AR-vf-DMV" firstAttribute="leading" secondItem="9NL-kB-TCE" secondAttribute="leading" constant="32" id="Wpi-cz-1Jt"/>
+                            <constraint firstItem="Ld1-2X-hM5" firstAttribute="top" secondItem="mFD-Qk-9uw" secondAttribute="bottom" constant="32" id="dtd-8C-Ge5"/>
                             <constraint firstItem="JXp-AZ-ZDG" firstAttribute="top" secondItem="9NL-kB-TCE" secondAttribute="top" constant="32" id="h3w-wI-A3V"/>
                             <constraint firstItem="mFD-Qk-9uw" firstAttribute="centerX" secondItem="4No-Wq-Y3V" secondAttribute="centerX" id="sSu-z1-VpU"/>
                             <constraint firstItem="8AR-vf-DMV" firstAttribute="top" secondItem="5h1-na-Tc3" secondAttribute="bottom" constant="32" id="t40-3d-3re"/>
@@ -193,6 +201,7 @@
                     <navigationItem key="navigationItem" id="K03-uM-55V"/>
                     <connections>
                         <outlet property="classChosenLabel" destination="8AR-vf-DMV" id="h8x-bi-hD6"/>
+                        <outlet property="otherPlayersLabel" destination="Ld1-2X-hM5" id="WSv-Ow-66y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZP-SO-S0b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
