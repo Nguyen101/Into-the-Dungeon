@@ -125,7 +125,9 @@ class CharacterSelectionController: UIViewController {
             }
             if identifier == "ContinueToGameSegue" {
                 //todo make sure that the game id is in the database
-                
+                if let className = classChosen, let id = gameID, let name = userName {
+                    FirebaseUtils.setClassForUser(gameID: id, userName: name, className: className)
+                }
                 
             }
             
