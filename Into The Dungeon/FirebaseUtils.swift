@@ -87,4 +87,22 @@ class FirebaseUtils {
     static func setUsers(gameID: String, users: [String]){
         self.ref.child("games").child(gameID).child("users").setValue(users)
     }
+    
+    static func setClassForUser(gameID: String, userName: String, className: String){
+        self.ref.child("games").child(gameID).child(userName).child("class").setValue(className)
+    }
+    
+    static func getClassForUser(gameID: String, userName: String, completion: @escaping (String) -> Void){
+        self.ref.child("games").child(gameID).child(userName).child("class").observeSingleEvent(of: .value, with: {(snapshot) in
+            if let data = snapshot.value as? String {
+                DispatchQueue.main.async {
+                    completion(data)
+                }
+            }
+        })
+    }
+    
+    static func setCardsforUser(gameID: String, userName: String, cards: [String]){
+        self.ref.child("games").child(gameID).child(userName).child("cards").setValue(cards)
+    }
 }

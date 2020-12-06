@@ -22,6 +22,7 @@ class CharacterSelectionController: UIViewController {
     var classChosen: String? = nil
     
     @IBOutlet weak var classChosenLabel: UILabel!
+    @IBOutlet weak var otherPlayersLabel: UILabel!
     
     @IBAction func ClericButton(_ sender: Any) {
         classChosenLabel.text = "Class Chosen: Cleric"
@@ -49,6 +50,7 @@ class CharacterSelectionController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        showOtherPlayers()
         
         // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
         // including entities and graphs.
@@ -75,6 +77,24 @@ class CharacterSelectionController: UIViewController {
 //                }
 //            }
 //        }
+        
+        
+    }
+    
+    func showOtherPlayers(){
+        FirebaseUtils.getUsers(gameID: gameID!, completion: {(users) in
+            self.otherPlayersLabel.numberOfLines = 0
+            for user in users {
+                FirebaseUtils.getClassForUser(gameID: self.gameID!, userName: user, completion: {(className) in
+                    if let text = self.otherPlayersLabel.text {
+                        self.otherPlayersLabel.text = text + "\n\(user): \(className)"
+                    }else{
+                        self.otherPlayersLabel.text = "\(user): \(className)\n"
+                    }
+                })
+            }
+            
+        })
     }
 
     override var shouldAutorotate: Bool {
@@ -124,12 +144,58 @@ class CharacterSelectionController: UIViewController {
                 return
             }
             if identifier == "ContinueToGameSegue" {
-                //todo make sure that the game id is in the database
-                
+                if let className = classChosen, let id = gameID, let name = userName {
+                    var cards: [String] = getInitialInitialCardsForPlayer(className: className)
+                    FirebaseUtils.setClassForUser(gameID: id, userName: name, className: className)
+                    FirebaseUtils.setCardsforUser(gameID: id, userName: name, cards: cards)
+                }
                 
             }
             
         }
         
+    }
+    
+    func getInitialInitialCardsForPlayer(className: String) -> [String] {
+        var cards: [String] = []
+        
+        if className == "Cleric" {
+            cards.append("card_cleric_headbash")
+            cards.append("card_cleric_shield")
+            cards.append("card_cleric_basicHeal")
+            cards.append("card_cleric_divineHeal")
+            cards.append("card_cleric_haste")
+            cards.append("card_cleric_pray")
+        }else if className == "Mage" {
+            cards.append("card_mage_fireblast")
+            cards.append("card_mage_iceBarrier")
+            cards.append("card_mage_shiningLight")
+            cards.append("card_mage_darkCloud")
+            cards.append("card_mage_unbreakableBarrier")
+            cards.append("card_mage_lightningStrike")
+            cards.append("card_mage_amplify")
+            cards.append("card_mage_chaosWind")
+        }else if className == "Archer" {
+            cards.append("card_archer_shoot")
+            cards.append("card_archer_block")
+            cards.append("card_archer_hellfire")
+            cards.append("card_archer_marked")
+            cards.append("card_archer_bulleyes")
+            cards.append("card_archer_suppressfire")
+            cards.append("card_archer_quickdraw")
+            cards.append("card_archer_blindshot")
+            cards.append("card_archer_godswill")
+            cards.append("card_archer_revive")
+        }else if className == "Warrior" {
+            cards.append("card_warrior_slash")
+            cards.append("card_warrior_guard")
+            cards.append("card_warrior_moraleBoost")
+            cards.append("card_warrior_rage")
+            cards.append("card_warrior_execute")
+            cards.append("card_warrior_uppercut")
+            cards.append("card_warrior_sharpenblade")
+            cards.append("card_warrior_doubleEdgeSword")
+        }
+        return cards
     }
 }

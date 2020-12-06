@@ -24,16 +24,6 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         //FirebaseApp.configure()
-
-        ref = Database.database().reference()
-        
-        self.ref.child("games").setValue(1324)
-        
-        self.ref.child("games").observeSingleEvent(of: .value, with: { (sanpshot) in
-            if let id = sanpshot.value as? Int {
-                print("thh value from the database: \(id)")
-            }
-        })
         
         // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
         // including entities and graphs.
