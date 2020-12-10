@@ -21,30 +21,20 @@ class ShopViewController: UIViewController {
         super.viewDidLoad()
         
         
-        // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
-        // including entities and graphs.
-        if let scene = GKScene(fileNamed: "ShopScene") {
-            
-            // Get the SKScene from the loaded GKScene
-            if let sceneNode = scene.rootNode as! GameScene? {
-                
-                // Copy gameplay related content over to the scene
-//                sceneNode.entities = scene.entities
-//                sceneNode.graphs = scene.graphs
-                
+        if let view = self.view as! SKView? {
+            // Load the SKScene from 'GameScene.sks'
+            if let scene = SKScene(fileNamed: "ShopScene") {
                 // Set the scale mode to scale to fit the window
-                sceneNode.scaleMode = .aspectFill
+                scene.scaleMode = .aspectFill
                 
                 // Present the scene
-                if let view = self.view as! SKView? {
-                    view.presentScene(sceneNode)
-                    
-                    view.ignoresSiblingOrder = true
-                    
-                    view.showsFPS = true
-                    view.showsNodeCount = true
-                }
+                view.presentScene(scene)
             }
+            
+            view.ignoresSiblingOrder = true
+            
+            view.showsFPS = true
+            view.showsNodeCount = true
         }
     }
 

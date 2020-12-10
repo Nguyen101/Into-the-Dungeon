@@ -64,7 +64,6 @@ class GameScene: SKScene {
         
         let location = touch.location(in: self)
         
-        let touchedNodes = nodes(at: location)
         let frontTouchedNode = atPoint(location).name
         
         if frontTouchedNode == topArrow.name! {
@@ -77,8 +76,14 @@ class GameScene: SKScene {
             
         }else if(frontTouchedNode == leftArrow.name!){
             print("Left Arrow Touched")
+            if let view = self.view, let window = view.window, let rootVC = window.rootViewController {
+                rootVC.performSegue(withIdentifier: "ShopSceneSegue", sender: nil)
+            }
         }else if(frontTouchedNode == rightArrow.name!){
             print("Right Arrow Touched")
+            if let view = self.view, let window = view.window, let rootVC = window.rootViewController {
+                rootVC.performSegue(withIdentifier: "MiniBossSceneSegue", sender: nil)
+            }
         }else{
             print("background touched")
         }

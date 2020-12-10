@@ -20,7 +20,7 @@ class FirebaseUtils {
     static func getGameData(gameID: String, completion: @escaping (Any?) -> Void) {
         var gameData: Any? = nil
         self.ref.child("games").child(gameID).observeSingleEvent(of: .value, with: { (sanpshot) in
-            if let data = sanpshot.value as? Any {
+            if let data = sanpshot.value {
                 gameData = data
                 DispatchQueue.main.async{
                     completion(gameData)
@@ -38,7 +38,7 @@ class FirebaseUtils {
         var userData: Any? = nil
         
         self.ref.child("games").child(gameID).child(userName).observeSingleEvent(of: .value, with: { (sanpshot) in
-            if let data = sanpshot.value as? Any {
+            if let data = sanpshot.value {
                 userData = data
                 DispatchQueue.main.async {
                     completion(userData)
@@ -71,8 +71,6 @@ class FirebaseUtils {
     static func getUsers(gameID: String, completion: @escaping ([String]) -> Void){
         self.ref.child("games").child(gameID).child("users").observeSingleEvent(of: .value, with: { (snapshot) in
             
-            print("TEST 4")
-            print(snapshot.value)
             if let data = snapshot.value as? [String] {
                 DispatchQueue.main.async {
                     completion(data)
