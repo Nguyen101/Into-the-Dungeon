@@ -23,7 +23,7 @@ class GameViewController: UIViewController {
         print("TEST 1")
         
         if let view = self.view as! SKView? {
-            print("TEST 2")
+            print("TEST 2 ")
             // Load the SKScene from 'GameScene.sks'
             if let scene = SKScene(fileNamed: "GameScene") {
                 print("TEST 3")
