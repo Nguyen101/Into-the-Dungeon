@@ -5,7 +5,6 @@
 //  Created by Vy Nguyen on 11/23/20.
 //  Copyright © 2020 Vy Nguyen. All rights reserved.
 //
-
 import UIKit
 import SpriteKit
 import GameplayKit
@@ -22,17 +21,6 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         print("TEST 1")
         
-        //FirebaseApp.configure()
-        
-        // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
-        // including entities and graphs.
-        if let scene = GKScene(fileNamed: "GameScene") {
-            
-            // Get the SKScene from the loaded GKScene
-            if let sceneNode = scene.rootNode as! GameScene? {
-                
-                // Copy gameplay related content over to the scene
-              
         if let view = self.view as! SKView? {
             print("TEST 2")
             // Load the SKScene from 'GameScene.sks'
