@@ -11,6 +11,17 @@ import GameplayKit
 
 class BattleScene: SKScene {
     
+
+    var entities = [GKEntity]()
+    var graphs = [String : GKGraph]()
+    
+    private var lastUpdateTime : TimeInterval = 0
+    private var label : SKLabelNode?
+    private var spinnyNode : SKShapeNode?
+    
+//    var entityManager: EntityManager! // user to remove or add an entity
+    
+    
     override func sceneDidLoad() {
 
     }
