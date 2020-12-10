@@ -56,4 +56,16 @@ class Player: SKSpriteNode {
         super.init(texture: playerImage, color: .clear, size: playerImage.size())
     }
     
+    // invoke when user choose to heal
+    func rest() {
+        
+    }
+    // invoke when user buy a card
+    func addACard(newCard: Card) {
+        
+    }
+    // invoke when user play a card
+    func playCard(cardPlayed: Card) -> Any {
+        return 1
+    }
 }
