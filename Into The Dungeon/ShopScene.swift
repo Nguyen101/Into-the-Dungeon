@@ -11,9 +11,6 @@ import GameplayKit
 
 class ShopScene: SKScene {
     
-    var entities = [GKEntity]()
-    var graphs = [String : GKGraph]()
-    
     override func sceneDidLoad() {
     // -MARK: Battle Scene
         //

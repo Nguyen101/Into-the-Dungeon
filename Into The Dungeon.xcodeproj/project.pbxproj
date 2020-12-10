@@ -27,6 +27,8 @@
 		BC03B458256E3B2800A51A2D /* CharacterSelectionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC03B457256E3B2800A51A2D /* CharacterSelectionScene.swift */; };
 		BC03B45E256E45F600A51A2D /* CharacterSelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC03B45D256E45F600A51A2D /* CharacterSelectionController.swift */; };
 		BC9ECE56257BFD29004CBD3F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9ECE55257BFD29004CBD3F /* Card.swift */; };
+		BCA112532582BBA5006F7037 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA112522582BBA5006F7037 /* Player.swift */; };
+		BCA112652582BEC6006F7037 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA112642582BEC6006F7037 /* Enemy.swift */; };
 		F81646979088E355B297EC73 /* Pods_Into_The_Dungeon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C3F35511275F9D40E9760CA /* Pods_Into_The_Dungeon.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +57,8 @@
 		BC03B457256E3B2800A51A2D /* CharacterSelectionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectionScene.swift; sourceTree = "<group>"; };
 		BC03B45D256E45F600A51A2D /* CharacterSelectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSelectionController.swift; sourceTree = "<group>"; };
 		BC9ECE55257BFD29004CBD3F /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		BCA112522582BBA5006F7037 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		BCA112642582BEC6006F7037 /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		F4530EACA850101A1B0F400C /* Pods-Into The Dungeon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Into The Dungeon.debug.xcconfig"; path = "Target Support Files/Pods-Into The Dungeon/Pods-Into The Dungeon.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +95,8 @@
 		39BE5A4A256C40D2007F0724 /* Into The Dungeon */ = {
 			isa = PBXGroup;
 			children = (
+				BCA112522582BBA5006F7037 /* Player.swift */,
+				BCA112642582BEC6006F7037 /* Enemy.swift */,
 				39BE5A4B256C40D2007F0724 /* AppDelegate.swift */,
 				39BE5A51256C40D2007F0724 /* GameScene.swift */,
 				BC9ECE55257BFD29004CBD3F /* Card.swift */,
@@ -254,6 +260,7 @@
 				96371B74256D8A2500210BBE /* FirebaseUtils.swift in Sources */,
 				96E5ADFF257466F3003C4CEB /* CampViewController.swift in Sources */,
 				96E5AE0525746A8A003C4CEB /* GameEndViewController.swift in Sources */,
+				BCA112532582BBA5006F7037 /* Player.swift in Sources */,
 				96E5AE0E25746CB5003C4CEB /* BattleViewController.swift in Sources */,
 				96E5AE0B25746C26003C4CEB /* ShopScene.swift in Sources */,
 				BC03B458256E3B2800A51A2D /* CharacterSelectionScene.swift in Sources */,
@@ -261,6 +268,7 @@
 				96E5AE0225746787003C4CEB /* CampScene.swift in Sources */,
 				964487B4256C9A8D00340D98 /* FirstScreenViewController.swift in Sources */,
 				96E5AE1125746D52003C4CEB /* BattleScene.swift in Sources */,
+				BCA112652582BEC6006F7037 /* Enemy.swift in Sources */,
 				39BE5A54256C40D2007F0724 /* GameViewController.swift in Sources */,
 				BC03B45E256E45F600A51A2D /* CharacterSelectionController.swift in Sources */,
 				39BE5A4C256C40D2007F0724 /* AppDelegate.swift in Sources */,
