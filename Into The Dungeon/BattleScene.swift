@@ -18,7 +18,7 @@ class BattleScene: SKScene {
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
-    var entityManager: EntityManager! // user to remove or add an entity
+//    var entityManager: EntityManager! // user to remove or add an entity
     
     
     override func sceneDidLoad() {
