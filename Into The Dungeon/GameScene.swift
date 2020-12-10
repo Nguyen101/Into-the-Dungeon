@@ -8,6 +8,7 @@
 
 import SpriteKit
 import GameplayKit
+import UIKit
 
 class GameScene: SKScene {
     
@@ -70,6 +71,10 @@ class GameScene: SKScene {
             print("Top Arrow Touched")
         }else if(frontTouchedNode == bottomArrow.name!){
             print("Bottom Arrow Touched")
+            if let view = self.view, let window = view.window, let rootVC = window.rootViewController {
+                rootVC.performSegue(withIdentifier: "BattleSceneSegue", sender: nil)
+            }
+            
         }else if(frontTouchedNode == leftArrow.name!){
             print("Left Arrow Touched")
         }else if(frontTouchedNode == rightArrow.name!){

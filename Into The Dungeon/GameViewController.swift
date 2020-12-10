@@ -19,13 +19,12 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("TEST 1")
         
+            
+              
         if let view = self.view as! SKView? {
-            print("TEST 2")
             // Load the SKScene from 'GameScene.sks'
             if let scene = SKScene(fileNamed: "GameScene") {
-                print("TEST 3")
                 // Set the scale mode to scale to fit the window
                 scene.scaleMode = .aspectFill
                 
@@ -53,6 +52,14 @@ class GameViewController: UIViewController {
                     }
                 }
             })
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "BattleSceneSegue" {
+                print("TEST")
+            }
         }
     }
 
