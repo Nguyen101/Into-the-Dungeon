@@ -14,8 +14,6 @@ import FirebaseDatabase
 import Firebase
 
 class ShopViewController: UIViewController {
-
-    
     var gameID: String? = nil
     var userName: String? = nil //nae of the user so that we can identify it out of the list of players
     
@@ -31,8 +29,6 @@ class ShopViewController: UIViewController {
             if let sceneNode = scene.rootNode as! GameScene? {
                 
                 // Copy gameplay related content over to the scene
-                sceneNode.entities = scene.entities
-                sceneNode.graphs = scene.graphs
                 
                 // Set the scale mode to scale to fit the window
                 sceneNode.scaleMode = .aspectFill
