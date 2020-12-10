@@ -95,6 +95,7 @@
                     <connections>
                         <outlet property="gameIDTextField" destination="iDH-mK-p7L" id="FO0-7j-gEI"/>
                         <outlet property="userNameTextField" destination="Kg5-qr-6ea" id="EjR-FP-l66"/>
+                        <segue destination="2NS-Vg-Srs" kind="show" identifier="BattleSceneSegue" id="nZs-mZ-brQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dfT-WA-gM4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -243,12 +244,13 @@
         <scene sceneID="hXi-7P-VGm">
             <objects>
                 <viewController id="2NS-Vg-Srs" customClass="BattleViewController" customModule="Into_The_Dungeon" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="uTw-am-Yj4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <view key="view" contentMode="scaleToFill" id="uTw-am-Yj4" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="LaJ-uv-uUn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ixa-La-M3B"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uoq-ji-akd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

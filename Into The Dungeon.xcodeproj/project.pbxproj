@@ -17,6 +17,7 @@
 		96371B74256D8A2500210BBE /* FirebaseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96371B73256D8A2500210BBE /* FirebaseUtils.swift */; };
 		964487B4256C9A8D00340D98 /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964487B3256C9A8D00340D98 /* FirstScreenViewController.swift */; };
 		96D995E92582C47400F84986 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 96D995E82582C47400F84986 /* GameScene.sks */; };
+		96D995ED2582D9A900F84986 /* BattleScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 96D995EC2582D9A900F84986 /* BattleScene.sks */; };
 		96E5ADFF257466F3003C4CEB /* CampViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5ADFE257466F3003C4CEB /* CampViewController.swift */; };
 		96E5AE0225746787003C4CEB /* CampScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5AE0125746787003C4CEB /* CampScene.swift */; };
 		96E5AE0525746A8A003C4CEB /* GameEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5AE0425746A8A003C4CEB /* GameEndViewController.swift */; };
@@ -47,6 +48,7 @@
 		96371B73256D8A2500210BBE /* FirebaseUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUtils.swift; sourceTree = "<group>"; };
 		964487B3256C9A8D00340D98 /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewController.swift; sourceTree = "<group>"; };
 		96D995E82582C47400F84986 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		96D995EC2582D9A900F84986 /* BattleScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BattleScene.sks; sourceTree = "<group>"; };
 		96E5ADFE257466F3003C4CEB /* CampViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampViewController.swift; sourceTree = "<group>"; };
 		96E5AE0125746787003C4CEB /* CampScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampScene.swift; sourceTree = "<group>"; };
 		96E5AE0425746A8A003C4CEB /* GameEndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEndViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				96E5AE0D25746CB5003C4CEB /* BattleViewController.swift */,
 				96E5AE1025746D52003C4CEB /* BattleScene.swift */,
 				96D995E82582C47400F84986 /* GameScene.sks */,
+				96D995EC2582D9A900F84986 /* BattleScene.sks */,
 			);
 			path = "Into The Dungeon";
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 			files = (
 				39BE5A57256C40D2007F0724 /* Main.storyboard in Resources */,
 				96D995E92582C47400F84986 /* GameScene.sks in Resources */,
+				96D995ED2582D9A900F84986 /* BattleScene.sks in Resources */,
 				39BE5A59256C40D4007F0724 /* Assets.xcassets in Resources */,
 				39BE5A5C256C40D4007F0724 /* LaunchScreen.storyboard in Resources */,
 				39BE5A66256C4A43007F0724 /* GoogleService-Info.plist in Resources */,
