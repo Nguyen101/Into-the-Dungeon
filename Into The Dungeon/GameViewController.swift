@@ -5,7 +5,6 @@
 //  Created by Vy Nguyen on 11/23/20.
 //  Copyright © 2020 Vy Nguyen. All rights reserved.
 //
-
 import UIKit
 import SpriteKit
 import GameplayKit
@@ -22,22 +21,35 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         print("TEST 1")
         
-        if let view = self.view as! SKView? {
-            print("TEST 2 ")
-            // Load the SKScene from 'GameScene.sks'
-            if let scene = SKScene(fileNamed: "GameScene") {
-                print("TEST 3")
-                // Set the scale mode to scale to fit the window
-                scene.scaleMode = .aspectFill
+        //FirebaseApp.configure()
+        
+        // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
+        // including entities and graphs.
+        if let scene = GKScene(fileNamed: "GameScene") {
+            
+            // Get the SKScene from the loaded GKScene
+            if let sceneNode = scene.rootNode as! GameScene? {
                 
-                // Present the scene
-                view.presentScene(scene)
+                // Copy gameplay related content over to the scene
+              
+                if let view = self.view as! SKView? {
+                    print("TEST 2")
+                    // Load the SKScene from 'GameScene.sks'
+                    if let scene = SKScene(fileNamed: "GameScene") {
+                        print("TEST 3")
+                        // Set the scale mode to scale to fit the window
+                        scene.scaleMode = .aspectFill
+                        
+                        // Present the scene
+                        view.presentScene(scene)
+                    }
+                    
+                    view.ignoresSiblingOrder = true
+                    
+                    view.showsFPS = true
+                    view.showsNodeCount = true
+                }
             }
-            
-            view.ignoresSiblingOrder = true
-            
-            view.showsFPS = true
-            view.showsNodeCount = true
         }
     }
     
