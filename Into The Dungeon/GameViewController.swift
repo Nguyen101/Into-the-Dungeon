@@ -18,7 +18,6 @@ class GameViewController: UIViewController {
     
     var gameID: String? = nil
     var userName: String? = nil //nae of the user so that we can identify it out of the list of players
-    var players: [Player] = [] //list of players
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +58,7 @@ class GameViewController: UIViewController {
                     if let userList = gameData["users"] as? [String] {
                         for x in userList {
                             if let userData = gameData[x] as? NSDictionary {
-                                self.players.append(Player(team: .team1, characterClass: userData["class"] as! String, name: userData["name"] as! String))
+                                //self.players.append(Player(team: .team1, characterClass: userData["class"] as! String, name: userData["name"] as! String))
                             }
                         }
                     }
