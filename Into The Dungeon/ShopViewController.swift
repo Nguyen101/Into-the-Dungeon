@@ -14,8 +14,6 @@ import FirebaseDatabase
 import Firebase
 
 class ShopViewController: UIViewController {
-
-    
     var gameID: String? = nil
     var userName: String? = nil //nae of the user so that we can identify it out of the list of players
     
