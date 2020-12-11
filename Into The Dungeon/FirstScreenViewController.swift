@@ -14,8 +14,8 @@ class FirstScreenViewController: UIViewController {
     var ref: DatabaseReference!
     
     //these two variables are what we are goingg to be pasing around the game
-    var userName: String = ""
-    var gameID: String = ""
+    static var userName: String = ""
+    static var gameID: String = ""
     
     @IBOutlet weak var gameIDTextField: UITextField!
     
@@ -43,8 +43,8 @@ class FirstScreenViewController: UIViewController {
             return
         }
         
-        self.userName = userName
-        self.gameID = gameId
+        FirstScreenViewController.userName = userName
+        FirstScreenViewController.gameID = gameId
         let cards: [String] = []
             
         let data = [
@@ -55,9 +55,9 @@ class FirstScreenViewController: UIViewController {
             "cards": cards
         ] as [String : Any]
             
-        FirebaseUtils.setUserData(gameID: gameID, userName: userName, userData: data)
+        FirebaseUtils.setUserData(gameID: FirstScreenViewController.gameID, userName: userName, userData: data)
         
-        FirebaseUtils.getUsers(gameID: gameID, completion: {(users) in
+        FirebaseUtils.getUsers(gameID: FirstScreenViewController.gameID, completion: {(users) in
             print("adding user to list...")
             if users.contains(userName) {
                 print("user already in game...")
@@ -65,7 +65,7 @@ class FirstScreenViewController: UIViewController {
                 var userList = users
                 userList.append(userName)
                 print(userList)
-                FirebaseUtils.setUsers(gameID: self.gameID, users: userList)
+                FirebaseUtils.setUsers(gameID: FirstScreenViewController.gameID, users: userList)
             }
         })
     }
@@ -115,8 +115,8 @@ class FirstScreenViewController: UIViewController {
                 addPlayerToGame(isInCharge: false)
                 
                 if let vc = segue.destination as? CharacterSelectionController {
-                    vc.gameID = gameID
-                    vc.userName = userName
+                    vc.gameID = FirstScreenViewController.gameID
+                    vc.userName = FirstScreenViewController.userName
                 }
                 
                 testFirebase()
@@ -130,17 +130,20 @@ class FirstScreenViewController: UIViewController {
                 }
                 
                 let data = [
-                    "users": users
-                ]
+                    "users": users,
+                    "room": "main room"
+                ] as [String : Any]
                 
                 FirebaseUtils.setGameData(gameID: gameIDTextField.text!, gameData: data)
                 
                 addPlayerToGame(isInCharge: true)
                 
                 if let vc = segue.destination as? CharacterSelectionController {
-                    vc.gameID = gameID
-                    vc.userName = userName
+                    vc.gameID = FirstScreenViewController.gameID
+                    vc.userName = FirstScreenViewController.userName
                 }
+                
+                testFirebase()
             }
             
         }
@@ -148,17 +151,17 @@ class FirstScreenViewController: UIViewController {
     }
     
     func testFirebase() {
-        FirebaseUtils.getGameData(gameID: gameID, completion: {(data) in
-            print("TEST 1")
+        FirebaseUtils.getGameData(gameID: FirstScreenViewController.gameID, completion: {(data) in
             if let gameData = data as? NSDictionary{
-                print("TEST 2")
                 if let users = gameData["users"] as? [String] {
                     print(users)
                 }
-                if let user = gameData[self.userName] as? NSDictionary {
-                    print("TEST 3")
+                if let user = gameData[FirstScreenViewController.userName] as? NSDictionary {
                     if let name = user["name"] as? String {
                         print("TEST " + name)
+                    }
+                    if let inCharge = user["inCharge"] as? Bool{
+                        print(inCharge)
                     }
                 }
             }

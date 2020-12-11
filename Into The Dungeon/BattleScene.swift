@@ -22,8 +22,33 @@ class BattleScene: SKScene {
 //    var entityManager: EntityManager! // user to remove or add an entity
     
     
+    override func didMove(to view: SKView) {
+        
+    }
+    
     override func sceneDidLoad() {
 
+    }
+    
+    func observeGameData(){
+        FirebaseUtils.observeGameData(gameID: FirstScreenViewController.gameID) { (data) in
+            guard let players = data["users"] as? [String] else {
+                print("couldn't get players")
+                return
+            }
+            
+            for x in players {
+                if let player = data[x] as? NSDictionary {
+                    
+                    if let cards = player["cards"] as? String {
+                        
+                    }
+                    
+                    
+                }
+            }
+            
+        }
     }
 
 }

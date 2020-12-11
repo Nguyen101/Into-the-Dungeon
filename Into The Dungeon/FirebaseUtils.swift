@@ -30,6 +30,16 @@ class FirebaseUtils {
         
     }
     
+    static func observeGameData(gameID: String, completion: @escaping (NSDictionary) -> Void) {
+        self.ref.child("games").child(gameID).observe(.value) { (snapshot) in
+            if let data = snapshot.value as? NSDictionary{
+                DispatchQueue.main.async{
+                    completion(data)
+                }
+            }
+        }
+    }
+    
     static func setGameData(gameID: String, gameData: Any){
         self.ref.child("games").child(gameID).setValue(gameData)
     }
@@ -102,5 +112,29 @@ class FirebaseUtils {
     
     static func setCardsforUser(gameID: String, userName: String, cards: [String]){
         self.ref.child("games").child(gameID).child(userName).child("cards").setValue(cards)
+    }
+    
+    static func observeDungeonRoom(gameID: String, completion: @escaping (String) -> Void){
+        self.ref.child("games").child(gameID).child("room").observe(.value, with: {(snapshot) in
+            if let data = snapshot.value as? String {
+                DispatchQueue.main.async {
+                    completion(data)
+                }
+            }
+        })
+    }
+    
+    static func setDungeonRomm(gameID: String, room: String){
+        self.ref.child("games").child(gameID).child("room").setValue(room)
+    }
+    
+    static func getIsUserInCharge(gameID: String, userName: String, completion: @escaping (Bool) -> Void){
+        self.ref.child("games").child(gameID).child(userName).child("inCharge").observeSingleEvent(of: .value) { (snapshot) in
+            if let data = snapshot.value as? Bool {
+                DispatchQueue.main.async {
+                    completion(data)
+                }
+            }
+        }
     }
 }

@@ -17,10 +17,10 @@ class GameScene: SKScene {
     var bottomArrow = SKSpriteNode()
     var leftArrow = SKSpriteNode()
     var rightArrow = SKSpriteNode()
+    var initializedObserver: Bool = false;
 
     
     override func didMove(to view: SKView) {
-
         
         background = SKSpriteNode(imageNamed: "dog")
         topArrow = SKSpriteNode(imageNamed: "104415")
@@ -57,6 +57,10 @@ class GameScene: SKScene {
         
     }
     
+    override func sceneDidLoad() {
+
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else {
             return
@@ -66,23 +70,35 @@ class GameScene: SKScene {
         
         let frontTouchedNode = atPoint(location).name
         
+        if(!initializedObserver){
+            initializeRoomObserver()
+            initializedObserver = true
+        }
+        
         if frontTouchedNode == topArrow.name! {
             print("Top Arrow Touched")
         }else if(frontTouchedNode == bottomArrow.name!){
-            print("Bottom Arrow Touched")
-            if let view = self.view, let window = view.window, let rootVC = window.rootViewController {
-                rootVC.performSegue(withIdentifier: "BattleSceneSegue", sender: nil)
+            print("Bottom Arrow Touched " + FirstScreenViewController.userName)
+            FirebaseUtils.getIsUserInCharge(gameID: FirstScreenViewController.gameID, userName: FirstScreenViewController.userName) { (data) in
+                print(data)
+                if(data){
+                    print("TEST")
+                    FirebaseUtils.setDungeonRomm(gameID: FirstScreenViewController.gameID, room: "battle scene")
+                }
             }
-            
         }else if(frontTouchedNode == leftArrow.name!){
             print("Left Arrow Touched")
-            if let view = self.view, let window = view.window, let rootVC = window.rootViewController {
-                rootVC.performSegue(withIdentifier: "ShopSceneSegue", sender: nil)
+            FirebaseUtils.getIsUserInCharge(gameID: FirstScreenViewController.gameID, userName: FirstScreenViewController.userName) { (data) in
+                if(data){
+                    FirebaseUtils.setDungeonRomm(gameID: FirstScreenViewController.gameID, room: "shop scene")
+                }
             }
         }else if(frontTouchedNode == rightArrow.name!){
             print("Right Arrow Touched")
-            if let view = self.view, let window = view.window, let rootVC = window.rootViewController {
-                rootVC.performSegue(withIdentifier: "MiniBossSceneSegue", sender: nil)
+            FirebaseUtils.getIsUserInCharge(gameID: FirstScreenViewController.gameID, userName: FirstScreenViewController.userName) { (data) in
+                if(data){
+                    FirebaseUtils.setDungeonRomm(gameID: FirstScreenViewController.gameID, room: "mini boss scene")
+                }
             }
         }else{
             print("background touched")
@@ -91,5 +107,21 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+    }
+    
+    func initializeRoomObserver(){
+        if let view = self.view, let window = view.window, let rootVC = window.rootViewController {
+            print("observer test")
+            FirebaseUtils.observeDungeonRoom(gameID: FirstScreenViewController.gameID) { (data) in
+                print(data)
+                if data == "battle scene" {
+                    rootVC.performSegue(withIdentifier: "BattleSceneSegue", sender: nil)
+                }else if data == "shop scene" {
+                    rootVC.performSegue(withIdentifier: "ShopSceneSegue", sender: nil)
+                }else if data == "mini boss scene" {
+                    rootVC.performSegue(withIdentifier: "MiniBossSceneSegue", sender: nil)
+                }
+            }
+        }
     }
 }
