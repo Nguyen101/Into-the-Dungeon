@@ -160,25 +160,25 @@ class CharacterSelectionController: UIViewController {
         var cards: [String] = []
         
         if className == "Cleric" {
-            cards.append("card_cleric_headbash")
-            cards.append("card_cleric_shield")
-            cards.append("card_cleric_basicHeal")
-            cards.append("card_cleric_divineHeal")
+            cards.append("cleric_headbash")
+            cards.append("cleric_shield")
+            cards.append("cleric_basicHeal")
+            cards.append("cleric_divineHeal")
         }else if className == "Mage" {
-            cards.append("card_mage_fireblast")
-            cards.append("card_mage_iceBarrier")
-            cards.append("card_mage_shiningLight")
-            cards.append("card_mage_darkCloud")
+            cards.append("mage_fireBlast")
+            cards.append("mage_iceBarrier")
+            cards.append("mage_divineLight")
+            cards.append("mage_darkCloud")
         }else if className == "Archer" {
-            cards.append("card_archer_shoot")
-            cards.append("card_archer_block")
-            cards.append("card_archer_hellfire")
-            cards.append("card_archer_marked")
+            cards.append("archer_shoot")
+            cards.append("archer_block")
+            cards.append("archer_hellfire")
+            cards.append("archer_marked")
         }else if className == "Warrior" {
-            cards.append("card_warrior_slash")
-            cards.append("card_warrior_guard")
-            cards.append("card_warrior_moraleBoost")
-            cards.append("card_warrior_rage")
+            cards.append("warrior_slash")
+            cards.append("warrior_guard")
+            cards.append("warrior_moraleBoost")
+            cards.append("warrior_rage")
         }
         return cards
     }

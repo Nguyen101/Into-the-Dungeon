@@ -15,7 +15,7 @@ enum CardType: Int {
 class Card: SKSpriteNode {
     var damage = 0
     var manaCost = 0
-    let damageLabel: SKLabelNode
+//    let damageLabel: SKLabelNode
     let cardType: CardType
     let frontTexture: SKTexture
     var cardName: String
@@ -26,12 +26,12 @@ class Card: SKSpriteNode {
     
     init(cardType: CardType) {
         self.cardType = cardType
-        damageLabel = SKLabelNode(fontNamed: "OpenSans-Bold")
-        damageLabel.name = "damageLabel"
-        damageLabel.fontSize = 12
-        damageLabel.fontColor = SKColor(red: 0.47, green: 0.0, blue: 0.0, alpha: 1.0)
-        damageLabel.text = "0"
-        damageLabel.position = CGPoint(x: 25, y: 40)
+//        damageLabel = SKLabelNode(fontNamed: "OpenSans-Bold")
+//        damageLabel.name = "damageLabel"
+//        damageLabel.fontSize = 12
+//        damageLabel.fontColor = SKColor(red: 0.47, green: 0.0, blue: 0.0, alpha: 1.0)
+//        damageLabel.text = "0"
+//        damageLabel.position = CGPoint(x: 25, y: 40)
         
         switch cardType {
         // basic deck
@@ -135,7 +135,7 @@ class Card: SKSpriteNode {
         }
         super.init(texture: frontTexture, color: .clear, size: frontTexture.size())
         self.name = cardName
-        addChild(damageLabel)
+//        addChild(damageLabel)
     }
     
     /*
@@ -210,7 +210,7 @@ class Card: SKSpriteNode {
         case "mage_chaosWind":
             return .chaosWind
         default:
-            return .blindShot
+            return .shoot
         }
     }
 }
