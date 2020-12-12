@@ -12,6 +12,7 @@ import GameplayKit
 class CharacterSelectionScene: SKScene {
     
     override func sceneDidLoad() {
+        
     }
 
 }
