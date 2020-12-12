@@ -20,6 +20,7 @@ class BattleScene: SKScene {
     private var spinnyNode : SKShapeNode?
     
     var players: [Player] = []
+    var cards: [Card] = []
         
     var playerNames: [String] = []
     var turn: Int = 0
@@ -51,6 +52,8 @@ class BattleScene: SKScene {
             
             self.deleteAllPlayerNodes()
             
+            self.deleteCardNodes()
+            
             for x in players {
                 if let player = data[x] as? NSDictionary {
                     
@@ -73,12 +76,22 @@ class BattleScene: SKScene {
                         
                     }
                     
+                            
                     if let cards = player["cards"] as? [String] {
                         for x in cards {
                             let type = Card.getCardType(cardName: x)
                             tempPlayer?.currentDeck.append(Card(cardType: type))
+                            
+                            //if this is the player then add the card nodes
+                            if let playerName = player["name"] as? String {
+                                if playerName == FirstScreenViewController.userName {
+                                    self.cards.append(Card(cardType: type))
+                                }
+                            }
+                            
                         }
                     }
+                       
                     
                     self.players.append(tempPlayer!)
                     
@@ -86,9 +99,28 @@ class BattleScene: SKScene {
             }
             
             self.addPlayerNodes()
+            self.addCardNodes()
             
             
             
+        }
+    }
+    
+    func deleteCardNodes(){
+        for x in self.cards {
+            x.removeFromParent()
+        }
+        self.cards = []
+    }
+    
+    func addCardNodes() {
+        print("ADDING CARD NODES")
+        var i = 0
+        for x in cards {
+            x.size = CGSize(width: x.size.width/7, height: x.size.height/6)
+            x.position = CGPoint(x: i*100 - 100, y: 0)
+            i += 1
+            addChild(x)
         }
     }
     
@@ -96,9 +128,10 @@ class BattleScene: SKScene {
         print("ADDING NODES")
         var i = 0
         for x in players {
+            print("adding " + playerNames[i])
             x.name = playerNames[i]
-            x.size = CGSize(width: x.size.width/8, height: x.size.height/8)
-            x.position = CGPoint(x: 0, y: i*10)
+            x.size = CGSize(width: x.size.width/4, height: x.size.height/4)
+            x.position = CGPoint(x: i*100 - 300, y: +150)
             i += 1
             addChild(x)
         }
