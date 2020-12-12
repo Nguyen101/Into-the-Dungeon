@@ -68,4 +68,14 @@ class Player: SKSpriteNode {
     func playCard(cardPlayed: Card) -> Any {
         return 1
     }
+    
+    func drawCard() -> Card {
+        var randomCard = Card(cardType: .amplify)
+        return randomCard
+        
+    }
+    
+    func addToDiscardPile() {
+        
+    }
 }
