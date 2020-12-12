@@ -21,15 +21,18 @@ class BattleScene: SKScene {
     
     var players: [Player] = []
     var cards: [Card] = []
+    var enemies: [Enemy] = []
         
     var playerNames: [String] = []
     var turn: Int = 0
+    var playerIndex: Int = 0 //index of the player
     
 //    var entityManager: EntityManager! // user to remove or add an entity
     
     
     override func didMove(to view: SKView) {
         observeGameData()
+        addEnemyNodes()
     }
     
     override func sceneDidLoad() {
@@ -51,12 +54,17 @@ class BattleScene: SKScene {
             self.turn = turn
             
             self.deleteAllPlayerNodes()
-            
             self.deleteCardNodes()
             
+            var counter = 0
             for x in players {
                 if let player = data[x] as? NSDictionary {
                     
+                    if let playerName = player["name"] as? String {
+                        if playerName == FirstScreenViewController.userName {
+                            self.playerIndex = counter
+                        }
+                    }
                     
                     var tempPlayer: Player? = nil
                     
@@ -70,13 +78,12 @@ class BattleScene: SKScene {
                         }else {
                             tempPlayer = Player(playerType: .warrior)
                         }
-                        
-                        
-                        
-                        
                     }
                     
-                            
+                    if let hitPoints = player["hitpoints"] as? Int {
+                        tempPlayer?.HP = hitPoints
+                    }
+                    
                     if let cards = player["cards"] as? [String] {
                         for x in cards {
                             let type = Card.getCardType(cardName: x)
@@ -91,17 +98,21 @@ class BattleScene: SKScene {
                             
                         }
                     }
-                       
-                    
                     self.players.append(tempPlayer!)
-                    
+                    counter += 1
                 }
             }
-            
             self.addPlayerNodes()
             self.addCardNodes()
             
-            
+            if let enemies = data["enemies"] as? NSDictionary {
+                if let archerHP = enemies["enemy_archer"] as? Int {
+                    self.enemies[0].HP = archerHP
+                }
+                if let guardHP = data["enemy_guard"] as? Int {
+                    self.enemies[1].HP = guardHP
+                }
+            }
             
         }
     }
@@ -126,12 +137,30 @@ class BattleScene: SKScene {
     
     func addPlayerNodes(){
         print("ADDING NODES")
+        
         var i = 0
         for x in players {
             print("adding " + playerNames[i])
             x.name = playerNames[i]
             x.size = CGSize(width: x.size.width/4, height: x.size.height/4)
             x.position = CGPoint(x: i*100 - 300, y: +150)
+            i += 1
+            addChild(x)
+        }
+    }
+    
+    func addEnemyNodes(){
+        print("ADDING ENEMY NODES")
+        
+        enemies.append(Enemy(enemyType: .archer))
+        enemies.append(Enemy(enemyType: .guarD))
+        self.enemies[0].name = "enemy_archer"
+        self.enemies[1].name = "enemy_guard"
+    
+        var i = 0
+        for x in enemies {
+            x.size = CGSize(width: x.size.width/4, height: x.size.height/4)
+            x.position = CGPoint(x: i*100, y: +150)
             i += 1
             addChild(x)
         }
@@ -151,16 +180,18 @@ class BattleScene: SKScene {
      sets the turn to be the next players
      */
     func nextPlayersTurn(){
-        updatePlayerInDatabase()
+        updateDataInDatabase()
         turn = (turn + 1) % playerNames.count
         FirebaseUtils.setPlayerTurn(gameID: FirstScreenViewController.gameID, turn: turn)
     }
     
     /*
-     updates the player in the database
+     updates the database - make sure to only call this at the end of a turn since we dont want to make a ton of calls from the database
      */
-    func updatePlayerInDatabase(){
-        
+    func updateDataInDatabase(){
+        FirebaseUtils.setHitPointsForUser(gameID: FirstScreenViewController.gameID, userName: FirstScreenViewController.userName, hitPoints: players[playerIndex].HP)
+        FirebaseUtils.setEnemyHitPoints(gameID: FirstScreenViewController.gameID, enemyName: "enemy_archer", hitPoints: enemies[0].HP)
+        FirebaseUtils.setEnemyHitPoints(gameID: FirstScreenViewController.gameID, enemyName: "enemy_guard", hitPoints: enemies[1].HP)
     }
     
     /*
@@ -173,6 +204,25 @@ class BattleScene: SKScene {
             }
         }
         return false
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else {
+            return
+        }
+        
+        let location = touch.location(in: self)
+        
+        let frontTouchedNode = atPoint(location).name
+        if let touchedNode = frontTouchedNode {
+            
+            if Card.wasItACardClicked(nodename: touchedNode) {
+                //a card was touched
+                var cardType = Card.getCardType(cardName: touchedNode)
+                
+                
+            }
+        }
     }
 
 }

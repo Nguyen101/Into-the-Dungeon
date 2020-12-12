@@ -129,10 +129,21 @@ class FirstScreenViewController: UIViewController {
                     users.append(name)
                 }
                 
+                let enemies = [
+                    "enemy_guard": 400,
+                    "enemy_archer": 300,
+                    "enemy_doctor": 300,
+                    "enemy_mage": 250,
+                    "enemy_great_lancer": 800,
+                    "enemy_the_executor": 750,
+                    "enemy_corrupt_king": 1000
+                ]as [String : Any]
+                
                 let data = [
                     "users": users,
                     "room": "main room",
-                    "turn": 0
+                    "turn": 0,
+                    "enemies": enemies
                 ] as [String : Any]
                 
                 FirebaseUtils.setGameData(gameID: gameIDTextField.text!, gameData: data)

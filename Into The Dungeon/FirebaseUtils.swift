@@ -141,4 +141,12 @@ class FirebaseUtils {
     static func setPlayerTurn(gameID: String, turn: Int){
         self.ref.child("games").child(gameID).child("turn").setValue(turn)
     }
+    
+    static func setHitPointsForUser(gameID: String, userName: String, hitPoints: Int){
+        self.ref.child("games").child(gameID).child(userName).child("hitpoints").setValue(hitPoints)
+    }
+    
+    static func setEnemyHitPoints(gameID: String, enemyName: String, hitPoints: Int){
+        self.ref.child("games").child(gameID).child("enemies").child(enemyName).setValue(hitPoints)
+    }
 }

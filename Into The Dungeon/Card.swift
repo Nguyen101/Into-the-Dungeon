@@ -213,4 +213,46 @@ class Card: SKSpriteNode {
             return .shoot
         }
     }
+    
+    //checks to see if the node that was touched was a card
+    static func wasItACardClicked(nodename: String) -> Bool{
+        switch nodename {
+        // basic deck
+        case "warrior_slash",
+         "warrior_guard",
+         "warrior_moraleBoost",
+         "warrior_rage",
+         "archer_shoot",
+         "archer_block",
+         "archer_hellfire",
+         "archer_marked",
+         "cleric_headbash",
+         "cleric_shield",
+         "cleric_basicHeal",
+         "cleric_divineHeal",
+         "mage_fireBlast",
+         "mage_iceBarrier",
+         "mage_divineLight",
+         "mage_darkCloud",
+         "warrior_execute",
+         "warrior_uppercut",
+         "warrior_sharpenblade",
+         "warrior_doubleEdgeSword",
+         "archer_bulleyes",
+         "archer_suppressfire",
+         "archer_quickdraw",
+         "archer_blindshot",
+         "cleric_godswill",
+         "cleric_revive",
+         "cleric_haste",
+         "cleric_pray",
+         "mage_unbreakableBarrier",
+         "mage_lightningStrike",
+         "mage_amplify",
+         "mage_chaosWind":
+            return true
+        default:
+            return false
+        }
+    }
 }
