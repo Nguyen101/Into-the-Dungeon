@@ -17,6 +17,7 @@ class Player: SKSpriteNode {
     let playerType: PlayerType
     let playerImage: SKTexture
     var HP: Int
+    var currentHP: Int
     var Speed: Int
     var Evasion: Int
     var manaPool: Int
@@ -31,24 +32,28 @@ class Player: SKSpriteNode {
         case .warrior:
             playerImage = SKTexture(imageNamed: "player_warrior")
             self.HP = 200
+            self.currentHP = 200
             self.Speed = 1
             self.Evasion = 1
             self.manaPool = 3
         case .archer:
             playerImage = SKTexture(imageNamed: "player_archer")
             self.HP = 150
+            self.currentHP = 150
             self.Speed = 2
             self.Evasion = 3
             self.manaPool = 3
         case .cleric:
             playerImage = SKTexture(imageNamed: "player_cleric")
             self.HP = 100
+            self.currentHP = 100
             self.Speed = 2
             self.Evasion = 1
             self.manaPool = 3
         case .mage:
             playerImage = SKTexture(imageNamed: "player_mage")
             self.HP = 150
+            self.currentHP = 150
             self.Speed = 2
             self.Evasion = 1
             self.manaPool = 3
@@ -58,7 +63,7 @@ class Player: SKSpriteNode {
     
     // invoke when user choose to heal
     func rest() {
-        
+        self.currentHP = self.currentHP + (self.HP * Int(0.10))
     }
     // invoke when user buy a card
     func addACard(newCard: Card) {
