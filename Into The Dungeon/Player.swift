@@ -22,6 +22,9 @@ class Player: SKSpriteNode {
     var Evasion: Int
     var manaPool: Int
     var currentDeck = [Card]()
+    var currentHand = [Card]()
+    var discardPile = [Card]()
+    var defensePoint = 0
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("NSCoding not supported")
@@ -67,20 +70,24 @@ class Player: SKSpriteNode {
     }
     // invoke when user buy a card
     func addACard(newCard: Card) {
+        self.currentDeck.append(newCard)
+    }
+    // basic attack
+    func attack(cardPlayed: Card, target: Enemy) {
         
     }
-    // invoke when user play a card
-    func playCard(cardPlayed: Card) -> Any {
-        return 1
+    // basic block
+    func defend(cardPlayed: Card) {
+        
+    }
+    func specialAbility(cardPlayed: Card, targets: [Enemy], targetNum: Int, currTeam: [Player], buffTarget: Player) {
+        
+    }
+    func drawCard() {
+        var randomInt = Int.random(in: 1..<currentDeck.count)
+        currentHand.append(currentDeck[randomInt])
+        currentDeck.remove(at: randomInt)
     }
     
-    func drawCard() -> Card {
-        var randomCard = Card(cardType: .amplify)
-        return randomCard
-        
-    }
     
-    func addToDiscardPile() {
-        
-    }
 }
