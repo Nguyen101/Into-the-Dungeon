@@ -54,27 +54,38 @@ class BattleScene: SKScene {
             for x in players {
                 if let player = data[x] as? NSDictionary {
                     
+                    
+                    var tempPlayer: Player? = nil
+                    
                     if let className = player["class"] as? String {
                         if className == "Cleric" {
-                            self.players.append(Player(playerType: .cleric))
+                            tempPlayer = Player(playerType: .cleric)
                         }else if className == "Mage" {
-                            self.players.append(Player(playerType: .mage))
+                            tempPlayer = Player(playerType: .mage)
                         }else if className == "Archer" {
-                            self.players.append(Player(playerType: .archer))
+                            tempPlayer = Player(playerType: .archer)
                         }else if className == "Warrior" {
-                            self.players.append(Player(playerType: .warrior))
+                            tempPlayer = Player(playerType: .warrior)
                         }
-                    }
-                    
-                    self.addPlayerNodes()
-                    
-                    if let cards = player["cards"] as? String {
+                        
+                        
+                        
                         
                     }
                     
+                    if let cards = player["cards"] as? [String] {
+                        for x in cards {
+                            let type = Card.getCardType(cardName: x)
+                            tempPlayer?.currentDeck.append(Card(cardType: type))
+                        }
+                    }
+                    
+                    self.players.append(tempPlayer!)
                     
                 }
             }
+            
+            self.addPlayerNodes()
             
             
             
