@@ -137,4 +137,8 @@ class FirebaseUtils {
             }
         }
     }
+    
+    static func setPlayerTurn(gameID: String, turn: Int){
+        self.ref.child("games").child(gameID).child("turn").setValue(turn)
+    }
 }
