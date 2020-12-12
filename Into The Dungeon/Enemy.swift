@@ -185,13 +185,13 @@ class Enemy: SKSpriteNode {
     //  Empower all enemies on the battle field
     //  Increase all their stats by flat amount: Speed + 2, Evasion + 1, min-max damage + 50, min-max block + 50
     // NOTE: CANNOT USE FOR THE NEXT TURN
-    func empower() {
+    func empower(minions: [Enemy]) {
         
     }
     
     // COMMAND:
     // Command an enemy to hit a random player
-    func command(target: Player, minion: Enemy) {
+    func command(target: [Player], minion: Enemy) {
         
     }
     
