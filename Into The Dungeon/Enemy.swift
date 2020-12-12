@@ -97,6 +97,22 @@ class Enemy: SKSpriteNode {
         super.init(texture: enemyImage, color: .clear, size: enemyImage.size())
     }
     
+    //checks to see if the node clicked was an enemy
+    static func wasItAnEnemyClicked(nodeName: String) -> Bool {
+        switch nodeName {
+        case "enemy_guard",
+             "enemy_archer",
+             "enemy_doctor",
+             "enemy_mage",
+             "enemy_great_lancer",
+             "enemy_the_executor",
+             "enemy_corrupt_king":
+            return true
+        default:
+            return false
+        }
+    }
+    
     
     // Guard abilities
     // SLASH:

@@ -129,7 +129,7 @@ class BattleScene: SKScene {
         var i = 0
         for x in cards {
             x.size = CGSize(width: x.size.width/7, height: x.size.height/6)
-            x.position = CGPoint(x: i*100 - 100, y: 0)
+            x.position = CGPoint(x: i*100 - 100, y: -30)
             i += 1
             addChild(x)
         }
@@ -143,7 +143,7 @@ class BattleScene: SKScene {
             print("adding " + playerNames[i])
             x.name = playerNames[i]
             x.size = CGSize(width: x.size.width/4, height: x.size.height/4)
-            x.position = CGPoint(x: i*100 - 300, y: +150)
+            x.position = CGPoint(x: i*100 - 300, y: +120)
             i += 1
             addChild(x)
         }
@@ -160,7 +160,7 @@ class BattleScene: SKScene {
         var i = 0
         for x in enemies {
             x.size = CGSize(width: x.size.width/4, height: x.size.height/4)
-            x.position = CGPoint(x: i*100, y: +150)
+            x.position = CGPoint(x: i*100 + 100, y: +120)
             i += 1
             addChild(x)
         }
@@ -219,9 +219,14 @@ class BattleScene: SKScene {
             if Card.wasItACardClicked(nodename: touchedNode) {
                 //a card was touched
                 var cardType = Card.getCardType(cardName: touchedNode)
+                print("card clicked")
                 
                 
             }
+            if Enemy.wasItAnEnemyClicked(nodeName: touchedNode){
+                print("enemy clicked")
+            }
+            
         }
     }
 
