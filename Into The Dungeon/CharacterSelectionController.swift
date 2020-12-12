@@ -164,37 +164,21 @@ class CharacterSelectionController: UIViewController {
             cards.append("card_cleric_shield")
             cards.append("card_cleric_basicHeal")
             cards.append("card_cleric_divineHeal")
-            cards.append("card_cleric_haste")
-            cards.append("card_cleric_pray")
         }else if className == "Mage" {
             cards.append("card_mage_fireblast")
             cards.append("card_mage_iceBarrier")
             cards.append("card_mage_shiningLight")
             cards.append("card_mage_darkCloud")
-            cards.append("card_mage_unbreakableBarrier")
-            cards.append("card_mage_lightningStrike")
-            cards.append("card_mage_amplify")
-            cards.append("card_mage_chaosWind")
         }else if className == "Archer" {
             cards.append("card_archer_shoot")
             cards.append("card_archer_block")
             cards.append("card_archer_hellfire")
             cards.append("card_archer_marked")
-            cards.append("card_archer_bulleyes")
-            cards.append("card_archer_suppressfire")
-            cards.append("card_archer_quickdraw")
-            cards.append("card_archer_blindshot")
-            cards.append("card_archer_godswill")
-            cards.append("card_archer_revive")
         }else if className == "Warrior" {
             cards.append("card_warrior_slash")
             cards.append("card_warrior_guard")
             cards.append("card_warrior_moraleBoost")
             cards.append("card_warrior_rage")
-            cards.append("card_warrior_execute")
-            cards.append("card_warrior_uppercut")
-            cards.append("card_warrior_sharpenblade")
-            cards.append("card_warrior_doubleEdgeSword")
         }
         return cards
     }
