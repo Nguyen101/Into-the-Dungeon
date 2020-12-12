@@ -164,8 +164,6 @@ class CharacterSelectionController: UIViewController {
             cards.append("card_cleric_shield")
             cards.append("card_cleric_basicHeal")
             cards.append("card_cleric_divineHeal")
-            //cards.append("card_cleric_haste")
-           //cards.append("card_cleric_pray")
         }else if className == "Mage" {
             cards.append("card_mage_fireblast")
             cards.append("card_mage_iceBarrier")
