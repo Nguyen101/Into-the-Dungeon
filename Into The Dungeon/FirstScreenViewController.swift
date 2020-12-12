@@ -131,7 +131,8 @@ class FirstScreenViewController: UIViewController {
                 
                 let data = [
                     "users": users,
-                    "room": "main room"
+                    "room": "main room",
+                    "turn": 0
                 ] as [String : Any]
                 
                 FirebaseUtils.setGameData(gameID: gameIDTextField.text!, gameData: data)

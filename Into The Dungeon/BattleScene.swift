@@ -28,7 +28,7 @@ class BattleScene: SKScene {
     
     
     override func didMove(to view: SKView) {
-        
+        observeGameData()
     }
     
     override func sceneDidLoad() {
@@ -64,7 +64,7 @@ class BattleScene: SKScene {
                             tempPlayer = Player(playerType: .mage)
                         }else if className == "Archer" {
                             tempPlayer = Player(playerType: .archer)
-                        }else if className == "Warrior" {
+                        }else {
                             tempPlayer = Player(playerType: .warrior)
                         }
                         
@@ -93,6 +93,7 @@ class BattleScene: SKScene {
     }
     
     func addPlayerNodes(){
+        print("ADDING NODES")
         var i = 0
         for x in players {
             x.name = playerNames[i]
