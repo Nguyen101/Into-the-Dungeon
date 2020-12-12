@@ -19,6 +19,9 @@ class BattleScene: SKScene {
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
+    var players: [String] = []
+    var turn: Int = 0
+    
 //    var entityManager: EntityManager! // user to remove or add an entity
     
     
@@ -36,6 +39,13 @@ class BattleScene: SKScene {
                 print("couldn't get players")
                 return
             }
+            self.players = players
+            
+            guard let turn = data["turn"] as? Int else {
+                print("couldnt get turn")
+                return
+            }
+            self.turn = turn
             
             for x in players {
                 if let player = data[x] as? NSDictionary {
@@ -49,6 +59,26 @@ class BattleScene: SKScene {
             }
             
         }
+    }
+    
+    /*
+     sets the turn to be the next players
+     */
+    func nextPlayersTurn(){
+        turn = (turn + 1) % players.count
+        FirebaseUtils.setPlayerTurn(gameID: FirstScreenViewController.gameID, turn: turn)
+    }
+    
+    /*
+     checks to see if it is the current players turn
+     */
+    func isCurrentPlayersTurn() -> Bool{
+        if turn < players.count {
+            if players[turn] == FirstScreenViewController.userName {
+                return true
+            }
+        }
+        return false
     }
 
 }
