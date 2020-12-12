@@ -96,6 +96,8 @@
                         <outlet property="gameIDTextField" destination="iDH-mK-p7L" id="FO0-7j-gEI"/>
                         <outlet property="userNameTextField" destination="Kg5-qr-6ea" id="EjR-FP-l66"/>
                         <segue destination="2NS-Vg-Srs" kind="show" identifier="BattleSceneSegue" id="nZs-mZ-brQ"/>
+                        <segue destination="DPf-b6-Myz" kind="show" identifier="ShopSceneSegue" id="R1E-Zb-yva"/>
+                        <segue destination="leM-q1-nMC" kind="show" identifier="MiniBossSceneSegue" id="Uao-UO-xph"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dfT-WA-gM4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -229,12 +231,13 @@
         <scene sceneID="bWK-mz-5It">
             <objects>
                 <viewController id="DPf-b6-Myz" customClass="ShopViewController" customModule="Into_The_Dungeon" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="vEz-hR-HKD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <view key="view" contentMode="scaleToFill" id="vEz-hR-HKD" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="LoW-ka-way"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="JqL-qD-BFu"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zwb-oC-SDa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -256,16 +259,17 @@
             </objects>
             <point key="canvasLocation" x="2422" y="338"/>
         </scene>
-        <!--Camp View Controller-->
+        <!--Mini Boss View Controller-->
         <scene sceneID="0cF-ea-b8S">
             <objects>
-                <viewController id="leM-q1-nMC" customClass="CampViewController" customModule="Into_The_Dungeon" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="v1w-fR-E14">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <viewController id="leM-q1-nMC" customClass="MiniBossViewController" customModule="Into_The_Dungeon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="v1w-fR-E14" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="0ov-ry-dEk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="xau-6E-WNP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LWl-1h-kIw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

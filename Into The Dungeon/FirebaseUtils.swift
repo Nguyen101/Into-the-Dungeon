@@ -20,7 +20,7 @@ class FirebaseUtils {
     static func getGameData(gameID: String, completion: @escaping (Any?) -> Void) {
         var gameData: Any? = nil
         self.ref.child("games").child(gameID).observeSingleEvent(of: .value, with: { (sanpshot) in
-            if let data = sanpshot.value as? Any {
+            if let data = sanpshot.value {
                 gameData = data
                 DispatchQueue.main.async{
                     completion(gameData)
@@ -28,6 +28,16 @@ class FirebaseUtils {
             }
         })
         
+    }
+    
+    static func observeGameData(gameID: String, completion: @escaping (NSDictionary) -> Void) {
+        self.ref.child("games").child(gameID).observe(.value) { (snapshot) in
+            if let data = snapshot.value as? NSDictionary{
+                DispatchQueue.main.async{
+                    completion(data)
+                }
+            }
+        }
     }
     
     static func setGameData(gameID: String, gameData: Any){
@@ -38,7 +48,7 @@ class FirebaseUtils {
         var userData: Any? = nil
         
         self.ref.child("games").child(gameID).child(userName).observeSingleEvent(of: .value, with: { (sanpshot) in
-            if let data = sanpshot.value as? Any {
+            if let data = sanpshot.value {
                 userData = data
                 DispatchQueue.main.async {
                     completion(userData)
@@ -71,8 +81,6 @@ class FirebaseUtils {
     static func getUsers(gameID: String, completion: @escaping ([String]) -> Void){
         self.ref.child("games").child(gameID).child("users").observeSingleEvent(of: .value, with: { (snapshot) in
             
-            print("TEST 4")
-            print(snapshot.value)
             if let data = snapshot.value as? [String] {
                 DispatchQueue.main.async {
                     completion(data)
@@ -104,5 +112,29 @@ class FirebaseUtils {
     
     static func setCardsforUser(gameID: String, userName: String, cards: [String]){
         self.ref.child("games").child(gameID).child(userName).child("cards").setValue(cards)
+    }
+    
+    static func observeDungeonRoom(gameID: String, completion: @escaping (String) -> Void){
+        self.ref.child("games").child(gameID).child("room").observe(.value, with: {(snapshot) in
+            if let data = snapshot.value as? String {
+                DispatchQueue.main.async {
+                    completion(data)
+                }
+            }
+        })
+    }
+    
+    static func setDungeonRomm(gameID: String, room: String){
+        self.ref.child("games").child(gameID).child("room").setValue(room)
+    }
+    
+    static func getIsUserInCharge(gameID: String, userName: String, completion: @escaping (Bool) -> Void){
+        self.ref.child("games").child(gameID).child(userName).child("inCharge").observeSingleEvent(of: .value) { (snapshot) in
+            if let data = snapshot.value as? Bool {
+                DispatchQueue.main.async {
+                    completion(data)
+                }
+            }
+        }
     }
 }

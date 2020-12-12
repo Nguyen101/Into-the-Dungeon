@@ -18,8 +18,10 @@
 		964487B4256C9A8D00340D98 /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964487B3256C9A8D00340D98 /* FirstScreenViewController.swift */; };
 		96D995E92582C47400F84986 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 96D995E82582C47400F84986 /* GameScene.sks */; };
 		96D995ED2582D9A900F84986 /* BattleScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 96D995EC2582D9A900F84986 /* BattleScene.sks */; };
-		96E5ADFF257466F3003C4CEB /* CampViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5ADFE257466F3003C4CEB /* CampViewController.swift */; };
-		96E5AE0225746787003C4CEB /* CampScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5AE0125746787003C4CEB /* CampScene.swift */; };
+		96D995F12582DE5F00F84986 /* ShopScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 96D995F02582DE5F00F84986 /* ShopScene.sks */; };
+		96D995F42582DE8500F84986 /* MiniBoss.sks in Resources */ = {isa = PBXBuildFile; fileRef = 96D995F32582DE8500F84986 /* MiniBoss.sks */; };
+		96E5ADFF257466F3003C4CEB /* MiniBossViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5ADFE257466F3003C4CEB /* MiniBossViewController.swift */; };
+		96E5AE0225746787003C4CEB /* MiniBoss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5AE0125746787003C4CEB /* MiniBoss.swift */; };
 		96E5AE0525746A8A003C4CEB /* GameEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5AE0425746A8A003C4CEB /* GameEndViewController.swift */; };
 		96E5AE0825746B6B003C4CEB /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5AE0725746B6B003C4CEB /* ShopViewController.swift */; };
 		96E5AE0B25746C26003C4CEB /* ShopScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5AE0A25746C26003C4CEB /* ShopScene.swift */; };
@@ -49,8 +51,10 @@
 		964487B3256C9A8D00340D98 /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewController.swift; sourceTree = "<group>"; };
 		96D995E82582C47400F84986 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		96D995EC2582D9A900F84986 /* BattleScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BattleScene.sks; sourceTree = "<group>"; };
-		96E5ADFE257466F3003C4CEB /* CampViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampViewController.swift; sourceTree = "<group>"; };
-		96E5AE0125746787003C4CEB /* CampScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampScene.swift; sourceTree = "<group>"; };
+		96D995F02582DE5F00F84986 /* ShopScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ShopScene.sks; sourceTree = "<group>"; };
+		96D995F32582DE8500F84986 /* MiniBoss.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MiniBoss.sks; sourceTree = "<group>"; };
+		96E5ADFE257466F3003C4CEB /* MiniBossViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniBossViewController.swift; sourceTree = "<group>"; };
+		96E5AE0125746787003C4CEB /* MiniBoss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniBoss.swift; sourceTree = "<group>"; };
 		96E5AE0425746A8A003C4CEB /* GameEndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEndViewController.swift; sourceTree = "<group>"; };
 		96E5AE0725746B6B003C4CEB /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		96E5AE0A25746C26003C4CEB /* ShopScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopScene.swift; sourceTree = "<group>"; };
@@ -112,8 +116,8 @@
 				39BE5A5D256C40D4007F0724 /* Info.plist */,
 				964487B3256C9A8D00340D98 /* FirstScreenViewController.swift */,
 				96371B73256D8A2500210BBE /* FirebaseUtils.swift */,
-				96E5ADFE257466F3003C4CEB /* CampViewController.swift */,
-				96E5AE0125746787003C4CEB /* CampScene.swift */,
+				96E5ADFE257466F3003C4CEB /* MiniBossViewController.swift */,
+				96E5AE0125746787003C4CEB /* MiniBoss.swift */,
 				96E5AE0425746A8A003C4CEB /* GameEndViewController.swift */,
 				96E5AE0725746B6B003C4CEB /* ShopViewController.swift */,
 				96E5AE0A25746C26003C4CEB /* ShopScene.swift */,
@@ -121,6 +125,8 @@
 				96E5AE1025746D52003C4CEB /* BattleScene.swift */,
 				96D995E82582C47400F84986 /* GameScene.sks */,
 				96D995EC2582D9A900F84986 /* BattleScene.sks */,
+				96D995F02582DE5F00F84986 /* ShopScene.sks */,
+				96D995F32582DE8500F84986 /* MiniBoss.sks */,
 			);
 			path = "Into The Dungeon";
 			sourceTree = "<group>";
@@ -203,11 +209,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				39BE5A57256C40D2007F0724 /* Main.storyboard in Resources */,
+				96D995F12582DE5F00F84986 /* ShopScene.sks in Resources */,
 				96D995E92582C47400F84986 /* GameScene.sks in Resources */,
 				96D995ED2582D9A900F84986 /* BattleScene.sks in Resources */,
 				39BE5A59256C40D4007F0724 /* Assets.xcassets in Resources */,
 				39BE5A5C256C40D4007F0724 /* LaunchScreen.storyboard in Resources */,
 				39BE5A66256C4A43007F0724 /* GoogleService-Info.plist in Resources */,
+				96D995F42582DE8500F84986 /* MiniBoss.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,14 +270,14 @@
 			files = (
 				39BE5A52256C40D2007F0724 /* GameScene.swift in Sources */,
 				96371B74256D8A2500210BBE /* FirebaseUtils.swift in Sources */,
-				96E5ADFF257466F3003C4CEB /* CampViewController.swift in Sources */,
+				96E5ADFF257466F3003C4CEB /* MiniBossViewController.swift in Sources */,
 				96E5AE0525746A8A003C4CEB /* GameEndViewController.swift in Sources */,
 				BCA112532582BBA5006F7037 /* Player.swift in Sources */,
 				96E5AE0E25746CB5003C4CEB /* BattleViewController.swift in Sources */,
 				96E5AE0B25746C26003C4CEB /* ShopScene.swift in Sources */,
 				BC03B458256E3B2800A51A2D /* CharacterSelectionScene.swift in Sources */,
 				96E5AE0825746B6B003C4CEB /* ShopViewController.swift in Sources */,
-				96E5AE0225746787003C4CEB /* CampScene.swift in Sources */,
+				96E5AE0225746787003C4CEB /* MiniBoss.swift in Sources */,
 				964487B4256C9A8D00340D98 /* FirstScreenViewController.swift in Sources */,
 				96E5AE1125746D52003C4CEB /* BattleScene.swift in Sources */,
 				BCA112652582BEC6006F7037 /* Enemy.swift in Sources */,

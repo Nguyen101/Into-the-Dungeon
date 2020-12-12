@@ -9,7 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-class CampScene: SKScene {
+class MiniBoss: SKScene {
 
     override func sceneDidLoad() {
       

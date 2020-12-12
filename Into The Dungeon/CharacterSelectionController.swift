@@ -145,7 +145,7 @@ class CharacterSelectionController: UIViewController {
             }
             if identifier == "ContinueToGameSegue" {
                 if let className = classChosen, let id = gameID, let name = userName {
-                    var cards: [String] = getInitialInitialCardsForPlayer(className: className)
+                    let cards: [String] = getInitialInitialCardsForPlayer(className: className)
                     FirebaseUtils.setClassForUser(gameID: id, userName: name, className: className)
                     FirebaseUtils.setCardsforUser(gameID: id, userName: name, cards: cards)
                 }
