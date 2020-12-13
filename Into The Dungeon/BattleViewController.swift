@@ -30,6 +30,7 @@ class BattleViewController: UIViewController {
                 
                 // Present the scene
                 view.presentScene(scene)
+                
             }
             
             view.ignoresSiblingOrder = true
@@ -60,6 +61,7 @@ class BattleViewController: UIViewController {
         super.viewWillAppear(animated)
         AppUtility.lockOrientation(.all)
     }
+    
 }
 
 

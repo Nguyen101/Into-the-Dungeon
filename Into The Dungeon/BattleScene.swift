@@ -22,6 +22,9 @@ class BattleScene: SKScene {
     var players: [Player] = []
     var cards: [Card] = []
     var enemies: [Enemy] = []
+    
+    var selectedCard: Card? = nil
+    var selectedEnemy: Enemy? = nil
         
     var playerNames: [String] = []
     var turn: Int = 0
@@ -41,6 +44,7 @@ class BattleScene: SKScene {
     
     func observeGameData(){
         FirebaseUtils.observeGameData(gameID: FirstScreenViewController.gameID) { (data) in
+            
             guard let players = data["users"] as? [String] else {
                 print("couldn't get players")
                 return
@@ -60,12 +64,6 @@ class BattleScene: SKScene {
             for x in players {
                 if let player = data[x] as? NSDictionary {
                     
-                    if let playerName = player["name"] as? String {
-                        if playerName == FirstScreenViewController.userName {
-                            self.playerIndex = counter
-                        }
-                    }
-                    
                     var tempPlayer: Player? = nil
                     
                     if let className = player["class"] as? String {
@@ -77,6 +75,14 @@ class BattleScene: SKScene {
                             tempPlayer = Player(playerType: .archer)
                         }else {
                             tempPlayer = Player(playerType: .warrior)
+                        }
+                    }
+                    
+                    
+                    if let playerName = player["name"] as? String {
+                        tempPlayer!.name = playerName
+                        if playerName == FirstScreenViewController.userName {
+                            self.playerIndex = counter
                         }
                     }
                     
@@ -113,6 +119,8 @@ class BattleScene: SKScene {
                     self.enemies[1].HP = guardHP
                 }
             }
+            
+            self.checkForEndOfGame()
             
         }
     }
@@ -180,16 +188,52 @@ class BattleScene: SKScene {
      sets the turn to be the next players
      */
     func nextPlayersTurn(){
+        
+        checkForEndOfGame()
+        
         updateDataInDatabase()
         turn = (turn + 1) % playerNames.count
         FirebaseUtils.setPlayerTurn(gameID: FirstScreenViewController.gameID, turn: turn)
     }
     
     /*
+     checks for the end of the game and if it is the end then goes to end of game segue
+     */
+    func checkForEndOfGame(){
+        if isEndOfGame() {
+            if let view = self.view, let window = view.window, let rootVC = window.rootViewController {
+                rootVC.performSegue(withIdentifier: "GameEndSegue", sender: nil)
+            }
+        }
+    }
+    
+    /*
+     checks to see if it should be the end of the game
+     */
+    func isEndOfGame() -> Bool {
+        for x in enemies {
+            if x.HP > 0 {
+                return false
+            }
+        }
+        return true
+    }
+    
+    /*
+     safely deletes a card
+     */
+    func deleteCard(index: Int){
+        cards[index].removeFromParent()
+        cards.remove(at: index)
+    }
+    
+    /*
      updates the database - make sure to only call this at the end of a turn since we dont want to make a ton of calls from the database
      */
     func updateDataInDatabase(){
-        FirebaseUtils.setHitPointsForUser(gameID: FirstScreenViewController.gameID, userName: FirstScreenViewController.userName, hitPoints: players[playerIndex].HP)
+        for x in players {
+            FirebaseUtils.setHitPointsForUser(gameID: FirstScreenViewController.gameID, userName: x.name!, hitPoints: x.HP)
+        }
         FirebaseUtils.setEnemyHitPoints(gameID: FirstScreenViewController.gameID, enemyName: "enemy_archer", hitPoints: enemies[0].HP)
         FirebaseUtils.setEnemyHitPoints(gameID: FirstScreenViewController.gameID, enemyName: "enemy_guard", hitPoints: enemies[1].HP)
     }
@@ -214,20 +258,81 @@ class BattleScene: SKScene {
         let location = touch.location(in: self)
         
         let frontTouchedNode = atPoint(location).name
-        if let touchedNode = frontTouchedNode {
-            
-            if Card.wasItACardClicked(nodename: touchedNode) {
-                //a card was touched
-                var cardType = Card.getCardType(cardName: touchedNode)
-                print("card clicked")
+        if isCurrentPlayersTurn() {
+            if let touchedNode = frontTouchedNode {
                 
-                
+                if Card.wasItACardClicked(nodename: touchedNode) {
+                    //a card was touched
+                    let cardType = Card.getCardType(cardName: touchedNode)
+                    print("card clicked")
+                    
+                    selectedCard = Card(cardType: cardType)
+                    
+                }
+                if Enemy.wasItAnEnemyClicked(nodeName: touchedNode){
+                    print("enemy clicked")
+                    if let card = selectedCard {
+                        for x in enemies {
+                            if touchedNode == x.name {
+                                switch card.cardType {
+                                case .slash,
+                                     .shoot,
+                                     .marked,
+                                     .headBash,
+                                     .fireBlast:
+                                    players[playerIndex].attack(cardPlayed: card, target: x)
+                                case .rage,
+                                     .hellFire,
+                                     .divineHeal,
+                                     .darkCloud:
+                                    players[playerIndex].specialAbility(cardPlayed: card, targets: enemies, targetNum: 0, currTeam: players, buffTarget: players[playerIndex])
+                                default:
+                                    print("uknown action")
+                                }
+                            }
+                        }
+                        selectedCard = nil
+                        nextPlayersTurn()
+                    }
+                }
+                if playerNames.contains(touchedNode){
+                    let selectedIndex = getIndexOfSelectedPlayer(playerName: touchedNode)
+                    print("ally or yourself clicked")
+                    if let card = selectedCard {
+                        switch card.cardType {
+                        case .guarD,
+                             .moraleBoost,
+                             .block,
+                             .shield,
+                             .basicHeal,
+                             .iceBarrier,
+                             .divineLight:
+                                players[selectedIndex].defend(cardPlayed: card)
+                        case .rage,
+                             .hellFire,
+                             .divineHeal,
+                             .darkCloud:
+                            players[selectedIndex].specialAbility(cardPlayed: card, targets: enemies, targetNum: 0, currTeam: players, buffTarget: players[selectedIndex])
+                        default:
+                            print("uknown action")
+                        }
+                        selectedCard = nil
+                        nextPlayersTurn()
+                    }
+                }
             }
-            if Enemy.wasItAnEnemyClicked(nodeName: touchedNode){
-                print("enemy clicked")
-            }
-            
         }
+    }
+    
+    func getIndexOfSelectedPlayer(playerName: String) -> Int{
+        var i = 0
+        for x in players {
+            if x.name == playerName {
+                return i
+            }
+            i += 1
+        }
+        return 0
     }
 
 }
