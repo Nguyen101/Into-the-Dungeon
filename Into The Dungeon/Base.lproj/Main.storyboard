@@ -60,7 +60,7 @@
                                                 <state key="normal" title="Join Game"/>
                                                 <connections>
                                                     <action selector="joinGameButton:" destination="B6O-lb-j4h" eventType="touchUpInside" id="aqD-26-Cg6"/>
-                                                    <segue destination="IjR-vx-nzL" kind="show" identifier="joinGameSegue" id="5Gp-6H-8FD"/>
+                                                    <segue destination="IjR-vx-nzL" kind="showDetail" identifier="joinGameSegue" id="5Gp-6H-8FD"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMi-9m-0hv">
@@ -68,7 +68,7 @@
                                                 <state key="normal" title="Create Game"/>
                                                 <connections>
                                                     <action selector="createGameButton:" destination="B6O-lb-j4h" eventType="touchUpInside" id="NWj-dz-K6g"/>
-                                                    <segue destination="IjR-vx-nzL" kind="show" identifier="createGameSegue" id="NPm-VS-Sb8"/>
+                                                    <segue destination="IjR-vx-nzL" kind="showDetail" identifier="createGameSegue" id="NPm-VS-Sb8"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -95,9 +95,10 @@
                     <connections>
                         <outlet property="gameIDTextField" destination="iDH-mK-p7L" id="FO0-7j-gEI"/>
                         <outlet property="userNameTextField" destination="Kg5-qr-6ea" id="EjR-FP-l66"/>
-                        <segue destination="2NS-Vg-Srs" kind="show" identifier="BattleSceneSegue" id="nZs-mZ-brQ"/>
-                        <segue destination="DPf-b6-Myz" kind="show" identifier="ShopSceneSegue" id="R1E-Zb-yva"/>
-                        <segue destination="leM-q1-nMC" kind="show" identifier="MiniBossSceneSegue" id="Uao-UO-xph"/>
+                        <segue destination="2NS-Vg-Srs" kind="showDetail" identifier="BattleSceneSegue" id="nZs-mZ-brQ"/>
+                        <segue destination="DPf-b6-Myz" kind="showDetail" identifier="ShopSceneSegue" id="R1E-Zb-yva"/>
+                        <segue destination="leM-q1-nMC" kind="showDetail" identifier="MiniBossSceneSegue" id="Uao-UO-xph"/>
+                        <segue destination="jNV-xa-fKJ" kind="showDetail" identifier="GameEndSegue" id="STC-U8-Vkd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dfT-WA-gM4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -176,7 +177,7 @@
                                 <state key="normal" title="Continue to Game"/>
                                 <connections>
                                     <action selector="goToGameButton:" destination="IjR-vx-nzL" eventType="touchUpInside" id="oaW-0A-hwc"/>
-                                    <segue destination="BV1-FR-VrT" kind="show" identifier="ContinueToGameSegue" id="Mkp-MW-DvT"/>
+                                    <segue destination="BV1-FR-VrT" kind="showDetail" identifier="ContinueToGameSegue" id="Mkp-MW-DvT"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other Players:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ld1-2X-hM5">
@@ -210,6 +211,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZP-SO-S0b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="86.956521739130437" y="99.776785714285708"/>
+        </scene>
+        <!--Game End View Controller-->
+        <scene sceneID="LpJ-dI-JVR">
+            <objects>
+                <viewController id="jNV-xa-fKJ" customClass="GameEndViewController" customModule="Into_The_Dungeon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eiO-P2-sA2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End of the Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pe3-3F-42w">
+                                <rect key="frame" x="143" y="410.5" width="128" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cHQ-AB-5tS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pe3-3F-42w" firstAttribute="centerY" secondItem="eiO-P2-sA2" secondAttribute="centerY" id="KlA-ra-TQW"/>
+                            <constraint firstItem="pe3-3F-42w" firstAttribute="centerX" secondItem="eiO-P2-sA2" secondAttribute="centerX" id="w8D-Ym-h9k"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="VlW-4n-DB1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="csb-0V-0IN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="95.652173913043484" y="763.39285714285711"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">

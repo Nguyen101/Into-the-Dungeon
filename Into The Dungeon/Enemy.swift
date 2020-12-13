@@ -114,6 +114,8 @@ class Enemy: SKSpriteNode {
     }
     
     
+    
+    
     // Guard abilities
     // SLASH:
     // Slash a player for a random amount of damage
