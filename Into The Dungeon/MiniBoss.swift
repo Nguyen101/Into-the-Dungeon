@@ -101,11 +101,12 @@ class MiniBoss: SKScene {
             self.addCardNodes()
             
             if let enemies = data["enemies"] as? NSDictionary {
-                if let archerHP = enemies["enemy_archer"] as? Int {
-                    self.enemies[0].HP = archerHP
-                }
-                if let guardHP = data["enemy_guard"] as? Int {
-                    self.enemies[1].HP = guardHP
+                
+                for en in self.enemies {
+                    
+                    if let enemyHP = enemies[en.name!] as? Int {
+                        en.HP = enemyHP
+                    }
                 }
             }
             
@@ -151,11 +152,11 @@ class MiniBoss: SKScene {
         let randomInt = Int.random(in: 1..<2)
         if randomInt == 1 {
             enemies.append(Enemy(enemyType: .theExecutor))
+            self.enemies[0].name = "enemy_the_executor"
         } else {
             enemies.append(Enemy(enemyType: .greatLancer))
+            self.enemies[0].name = "enemy_great_lancer"
         }
-        self.enemies[0].name = "enemy_archer"
-        self.enemies[1].name = "enemy_guard"
     
         var i = 0
         for x in enemies {
@@ -226,8 +227,10 @@ class MiniBoss: SKScene {
         for x in players {
             FirebaseUtils.setHitPointsForUser(gameID: FirstScreenViewController.gameID, userName: x.name!, hitPoints: x.HP)
         }
-        FirebaseUtils.setEnemyHitPoints(gameID: FirstScreenViewController.gameID, enemyName: "enemy_archer", hitPoints: enemies[0].HP)
-        FirebaseUtils.setEnemyHitPoints(gameID: FirstScreenViewController.gameID, enemyName: "enemy_guard", hitPoints: enemies[1].HP)
+        
+        for en in enemies {
+            FirebaseUtils.setEnemyHitPoints(gameID: FirstScreenViewController.gameID, enemyName: en.name!, hitPoints: en.HP)
+        }
     }
     
     /*
