@@ -14,6 +14,9 @@ import Firebase
 
 class BattleViewController: UIViewController {
 
+    @IBAction func goBackButton(_ sender: Any) {
+        FirebaseUtils.setDungeonRomm(gameID: FirstScreenViewController.gameID, room: "none")
+    }
     
     var gameID: String? = nil
     var userName: String? = nil //nae of the user so that we can identify it out of the list of players
@@ -42,7 +45,7 @@ class BattleViewController: UIViewController {
     }
 
     override var shouldAutorotate: Bool {
-        return false
+        return true
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -61,6 +64,7 @@ class BattleViewController: UIViewController {
         super.viewWillAppear(animated)
         AppUtility.lockOrientation(.all)
     }
+    
     
 }
 

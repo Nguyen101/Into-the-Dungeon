@@ -21,10 +21,17 @@ class MiniBoss: SKScene {
     var playerNames: [String] = []
     var turn: Int = 0
     var playerIndex: Int = 0 //index of the player
-
+    
+    var background  = SKSpriteNode()
+    
     override func didMove(to view: SKView) {
         observeGameData()
         addEnemyNodes()
+        
+        background = SKSpriteNode(imageNamed: "Flooded Catacombs by Celarx on DeviantArt")
+//        background.size = CGSize(width: self.frame.width, height: self.frame.height)
+        background.zPosition = -1
+        addChild(background)
     }
     
     override func sceneDidLoad() {
@@ -76,7 +83,8 @@ class MiniBoss: SKScene {
                     }
                     
                     if let hitPoints = player["hitpoints"] as? Int {
-                        tempPlayer?.HP = hitPoints
+                        tempPlayer?.currentHP = hitPoints
+                        tempPlayer?.HPLabel.text = (tempPlayer?.name!)! + " " + String(hitPoints)
                     }
                     
                     if let cards = player["cards"] as? [String] {
@@ -101,11 +109,16 @@ class MiniBoss: SKScene {
             self.addCardNodes()
             
             if let enemies = data["enemies"] as? NSDictionary {
-                if let archerHP = enemies["enemy_archer"] as? Int {
-                    self.enemies[0].HP = archerHP
-                }
-                if let guardHP = data["enemy_guard"] as? Int {
-                    self.enemies[1].HP = guardHP
+                
+                for en in self.enemies {
+                    if let enemyHP = enemies[en.name!] as? Int {
+                        en.currentHP = enemyHP
+                        en.HPLabel.text = en.name! + " " + String(enemyHP)
+                        if enemyHP <= 0 {
+                            en.texture = SKTexture(imageNamed: "2868354")
+                        }
+                        print(en.name! + " " + String(en.currentHP))
+                    }
                 }
             }
             
@@ -139,7 +152,7 @@ class MiniBoss: SKScene {
         for x in players {
             print("adding " + playerNames[i])
             x.name = playerNames[i]
-            x.size = CGSize(width: x.size.width/4, height: x.size.height/4)
+            x.size = CGSize(width: x.size.width/6, height: x.size.height/6)
             x.position = CGPoint(x: i*100 - 300, y: +120)
             i += 1
             addChild(x)
@@ -151,15 +164,15 @@ class MiniBoss: SKScene {
         let randomInt = Int.random(in: 1..<2)
         if randomInt == 1 {
             enemies.append(Enemy(enemyType: .theExecutor))
+            self.enemies[0].name = "enemy_the_executor"
         } else {
             enemies.append(Enemy(enemyType: .greatLancer))
+            self.enemies[0].name = "enemy_great_lancer"
         }
-        self.enemies[0].name = "enemy_archer"
-        self.enemies[1].name = "enemy_guard"
     
         var i = 0
         for x in enemies {
-            x.size = CGSize(width: x.size.width/4, height: x.size.height/4)
+            x.size = CGSize(width: x.size.width/6, height: x.size.height/6)
             x.position = CGPoint(x: i*100 + 100, y: +120)
             i += 1
             addChild(x)
@@ -181,11 +194,11 @@ class MiniBoss: SKScene {
      */
     func nextPlayersTurn(){
         
-        checkForEndOfGame()
-        
         updateDataInDatabase()
         turn = (turn + 1) % playerNames.count
         FirebaseUtils.setPlayerTurn(gameID: FirstScreenViewController.gameID, turn: turn)
+        
+        checkForEndOfGame()
     }
     
     /*
@@ -204,7 +217,7 @@ class MiniBoss: SKScene {
      */
     func isEndOfGame() -> Bool {
         for x in enemies {
-            if x.HP > 0 {
+            if x.currentHP > 0 {
                 return false
             }
         }
@@ -224,10 +237,12 @@ class MiniBoss: SKScene {
      */
     func updateDataInDatabase(){
         for x in players {
-            FirebaseUtils.setHitPointsForUser(gameID: FirstScreenViewController.gameID, userName: x.name!, hitPoints: x.HP)
+            FirebaseUtils.setHitPointsForUser(gameID: FirstScreenViewController.gameID, userName: x.name!, hitPoints: x.currentHP)
         }
-        FirebaseUtils.setEnemyHitPoints(gameID: FirstScreenViewController.gameID, enemyName: "enemy_archer", hitPoints: enemies[0].HP)
-        FirebaseUtils.setEnemyHitPoints(gameID: FirstScreenViewController.gameID, enemyName: "enemy_guard", hitPoints: enemies[1].HP)
+        
+        for en in enemies {
+            FirebaseUtils.setEnemyHitPoints(gameID: FirstScreenViewController.gameID, enemyName: en.name!, hitPoints: en.currentHP)
+        }
     }
     
     /*
