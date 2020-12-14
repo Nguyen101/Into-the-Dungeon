@@ -10,15 +10,6 @@ import SpriteKit
 import GameplayKit
 
 class BattleScene: SKScene {
-    
-
-    var entities = [GKEntity]()
-    var graphs = [String : GKGraph]()
-    
-    private var lastUpdateTime : TimeInterval = 0
-    private var label : SKLabelNode?
-    private var spinnyNode : SKShapeNode?
-    
     var players: [Player] = []
     var cards: [Card] = []
     var enemies: [Enemy] = []
@@ -29,10 +20,7 @@ class BattleScene: SKScene {
     var playerNames: [String] = []
     var turn: Int = 0
     var playerIndex: Int = 0 //index of the player
-    
-//    var entityManager: EntityManager! // user to remove or add an entity
-    
-    
+
     override func didMove(to view: SKView) {
         observeGameData()
         addEnemyNodes()
@@ -267,7 +255,7 @@ class BattleScene: SKScene {
                     print("card clicked")
                     
                     selectedCard = Card(cardType: cardType)
-                    
+
                 }
                 if Enemy.wasItAnEnemyClicked(nodeName: touchedNode){
                     print("enemy clicked")
