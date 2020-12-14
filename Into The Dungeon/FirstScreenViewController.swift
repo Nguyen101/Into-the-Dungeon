@@ -25,21 +25,15 @@ class FirstScreenViewController: UIViewController {
     }
     
     @IBAction func createGameButton(_ sender: Any) {
-        
-    
     }
     
     override func viewDidLoad() {
         ref = Database.database().reference()
-        
-        
     }
     
     func addPlayerToGame(isInCharge: Bool) {
-        guard let gameId = gameIDTextField.text, let userName = userNameTextField.text else {
-            
+        guard let gameId = gameIDTextField.text, let userName = userNameTextField.text else {  
             alertUser(title: "Wrong input", message: "please provide valid inputs for the game id and the username")
-            
             return
         }
         

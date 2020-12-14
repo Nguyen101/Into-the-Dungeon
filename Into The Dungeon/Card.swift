@@ -9,7 +9,7 @@
 import SpriteKit
 
 enum CardType: Int {
-    case slash, guarD, moraleBoost, rage, shoot, block, hellFire, marked, headBash, shield, basicHeal, divineHeal, fireBlast, iceBarrier, divineLight, darkCloud, execute, uppercut, sharpenBlade, doubleEdgeSword, bullEyes, suppressFire, quickDraw, blindShot, godsWill, revive, haste, pray, unbreakableBarrier, lightningStrike, amplify, chaosWind
+    case slash, guarD, moraleBoost, rage, shoot, block, hellFire, marked, headBash, shield, basicHeal, divineHeal, fireBlast, iceBarrier, divineLight, darkCloud
 }
 
 class Card: SKSpriteNode {
@@ -83,55 +83,7 @@ class Card: SKSpriteNode {
         case .darkCloud:
             frontTexture = SKTexture(imageNamed: "mage_darkCloud")
             cardName = "mage_darkCloud"
-            // for shops
-        case .execute:
-            frontTexture = SKTexture(imageNamed: "warrior_execute")
-            cardName = "warrior_execute"
-        case .uppercut:
-            frontTexture = SKTexture(imageNamed: "warrior_uppercut")
-            cardName = "warrior_uppercut"
-        case .sharpenBlade:
-            frontTexture = SKTexture(imageNamed: "warrior_sharpenblade")
-            cardName = "warrior_sharpenblade"
-        case .doubleEdgeSword:
-            frontTexture = SKTexture(imageNamed: "warrior_doubleEdgeSword")
-            cardName = "warrior_doubleEdgeSword"
-        case .bullEyes:
-            frontTexture = SKTexture(imageNamed: "archer_bulleyes")
-            cardName = "archer_bulleyes"
-        case .suppressFire:
-            frontTexture = SKTexture(imageNamed: "archer_suppressfire")
-            cardName = "archer_suppressfire"
-        case .quickDraw:
-            frontTexture = SKTexture(imageNamed: "archer_quickdraw")
-            cardName = "archer_quickdraw"
-        case .blindShot:
-            frontTexture = SKTexture(imageNamed: "archer_blindshot")
-            cardName = "archer_blindshot"
-        case .godsWill:
-            frontTexture = SKTexture(imageNamed: "cleric_godswill")
-            cardName = "cleric_godswill"
-        case .revive:
-            frontTexture = SKTexture(imageNamed: "cleric_revive")
-            cardName = "cleric_revive"
-        case .haste:
-            frontTexture = SKTexture(imageNamed: "cleric_haste")
-            cardName = "cleric_haste"
-        case .pray:
-            frontTexture = SKTexture(imageNamed: "cleric_pray")
-            cardName = "cleric_pray"
-        case .unbreakableBarrier:
-            frontTexture = SKTexture(imageNamed: "mage_unbreakableBarrier")
-            cardName = "mage_unbreakableBarrier"
-        case .lightningStrike:
-            frontTexture = SKTexture(imageNamed: "mage_lightningStrike")
-            cardName = "mage_lightningStrike"
-        case .amplify:
-            frontTexture = SKTexture(imageNamed: "mage_amplify")
-            cardName = "mage_amplify"
-        case .chaosWind:
-            frontTexture = SKTexture(imageNamed: "mage_chaosWind")
-            cardName = "mage_chaosWind"
+            
         }
         super.init(texture: frontTexture, color: .clear, size: frontTexture.size())
         self.name = cardName
@@ -176,39 +128,6 @@ class Card: SKSpriteNode {
             return .divineLight
         case "mage_darkCloud":
             return .darkCloud
-            // for shops
-        case "warrior_execute":
-            return .execute
-        case "warrior_uppercut":
-            return .uppercut
-        case "warrior_sharpenblade":
-            return .sharpenBlade
-        case "warrior_doubleEdgeSword":
-            return .doubleEdgeSword
-        case "archer_bulleyes":
-            return .bullEyes
-        case "archer_suppressfire":
-            return .suppressFire
-        case "archer_quickdraw":
-            return .quickDraw
-        case "archer_blindshot":
-            return .blindShot
-        case "cleric_godswill":
-            return .godsWill
-        case "cleric_revive":
-            return .revive
-        case "cleric_haste":
-            return .haste
-        case "cleric_pray":
-            return .pray
-        case "mage_unbreakableBarrier":
-            return .unbreakableBarrier
-        case "mage_lightningStrike":
-            return .lightningStrike
-        case "mage_amplify":
-            return .amplify
-        case "mage_chaosWind":
-            return .chaosWind
         default:
             return .shoot
         }
@@ -233,23 +152,7 @@ class Card: SKSpriteNode {
          "mage_fireBlast",
          "mage_iceBarrier",
          "mage_divineLight",
-         "mage_darkCloud",
-         "warrior_execute",
-         "warrior_uppercut",
-         "warrior_sharpenblade",
-         "warrior_doubleEdgeSword",
-         "archer_bulleyes",
-         "archer_suppressfire",
-         "archer_quickdraw",
-         "archer_blindshot",
-         "cleric_godswill",
-         "cleric_revive",
-         "cleric_haste",
-         "cleric_pray",
-         "mage_unbreakableBarrier",
-         "mage_lightningStrike",
-         "mage_amplify",
-         "mage_chaosWind":
+         "mage_darkCloud":
             return true
         default:
             return false

@@ -11,17 +11,21 @@ import GameplayKit
 
 class ShopScene: SKScene {
     
+    var shopCards = [Card]()
+    var currentPlayer = Player(playerType: .warrior)// temporary
     override func sceneDidLoad() {
-    // -MARK: Battle Scene
-        //
+        //self.getCurrentPlayer()
     }
     
-
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-       
+    // generate random cards to present
+    func generateShop() {
+        
+    }
+    // if the user tap the card then tap the buy button
+    func getCurrentPlayer (){
+        
     }
     
-
     
 
 }
