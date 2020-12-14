@@ -76,15 +76,15 @@ class Player: SKSpriteNode {
     func attack(cardPlayed: Card, target: Enemy) {
         switch cardPlayed.cardType {
         case .slash:
-            target.HP -= 100
+            target.currentHP -= 100
         case .shoot:
-            target.HP -= 100
+            target.currentHP -= 100
         case .marked:
-            target.HP -= 100
+            target.currentHP -= 100
         case .headBash:
-            target.HP -= 100
+            target.currentHP -= 100
         case .fireBlast:
-            target.HP -= 100
+            target.currentHP -= 100
         default:
             print("unknown action")
         }
@@ -93,19 +93,19 @@ class Player: SKSpriteNode {
     func defend(cardPlayed: Card) {
         switch cardPlayed.cardType {
         case .guarD:
-            HP += 100
+            defensePoint += 100
         case .moraleBoost:
-            HP += 100
+            defensePoint += 100
         case .block:
-            HP += 100
+            defensePoint += 100
         case .shield:
-            HP += 100
+            defensePoint += 100
         case .basicHeal:
-            HP += 100
+            defensePoint += 100
         case .iceBarrier:
-            HP += 100
+            defensePoint += 100
         case .divineLight:
-            HP += 100
+            defensePoint += 100
         default:
             print("unknown action")
         }
