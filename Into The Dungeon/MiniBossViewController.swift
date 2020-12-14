@@ -20,6 +20,11 @@ class MiniBossViewController: UIViewController {
     var gameID: String? = nil
     var userName: String? = nil //nae of the user so that we can identify it out of the list of players
     
+    @IBAction func goBackButton(_ sender: Any) {
+        FirebaseUtils.setDungeonRomm(gameID: FirstScreenViewController.gameID, room: "none")
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +38,7 @@ class MiniBossViewController: UIViewController {
                 // Present the scene
                 view.presentScene(scene)
             }
+           
             
             view.ignoresSiblingOrder = true
             
@@ -43,7 +49,7 @@ class MiniBossViewController: UIViewController {
     }
 
     override var shouldAutorotate: Bool {
-        return false
+        return true
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {

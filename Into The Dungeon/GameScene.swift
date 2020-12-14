@@ -17,42 +17,42 @@ class GameScene: SKScene {
     var bottomArrow = SKSpriteNode()
     var leftArrow = SKSpriteNode()
     var rightArrow = SKSpriteNode()
-    var initializedObserver: Bool = false;
+    static var initializedObserver: Bool = false;
 
     
     override func didMove(to view: SKView) {
         
-        background = SKSpriteNode(imageNamed: "dog")
+        background = SKSpriteNode(imageNamed: "Zoriy User Profile | DeviantArt")
         topArrow = SKSpriteNode(imageNamed: "3153859")
         bottomArrow = SKSpriteNode(imageNamed: "1469810")
         leftArrow = SKSpriteNode(imageNamed: "509802")
         rightArrow = SKSpriteNode(imageNamed: "2614419")
         
-        background.size = CGSize(width: self.frame.width, height: self.frame.height)
+//        background.size = CGSize(width: self.frame.width, height: self.frame.height)
         background.zPosition = -1
         addChild(background)
         
         
         topArrow.name = "topArrow"
         topArrow.size = CGSize(width: topArrow.size.width/8, height: topArrow.size.height/8)
-        topArrow.position = CGPoint(x: 0, y: 550)
+        topArrow.position = CGPoint(x: 0, y: 100)
         print(self.frame.width)
         print(self.frame.height)
         addChild(topArrow)
         
         bottomArrow.name = "bottomArrow"
         bottomArrow.size = CGSize(width: bottomArrow.size.width/8, height: bottomArrow.size.height/8)
-        bottomArrow.position = CGPoint(x: 0, y: -550)
+        bottomArrow.position = CGPoint(x: 0, y: -100)
         addChild(bottomArrow)
         
         leftArrow.name = "leftArrow"
         leftArrow.size = CGSize(width: leftArrow.size.width/8, height: leftArrow.size.height/8)
-        leftArrow.position = CGPoint(x: -300, y: 0)
+        leftArrow.position = CGPoint(x: -200, y: 0)
         addChild(leftArrow)
         
         rightArrow.name = "rightArrow"
         rightArrow.size = CGSize(width: rightArrow.size.width/8, height: rightArrow.size.height/8)
-        rightArrow.position = CGPoint(x: 300, y: 0)
+        rightArrow.position = CGPoint(x: 200, y: 0)
         addChild(rightArrow)
         
     }
@@ -70,9 +70,9 @@ class GameScene: SKScene {
         
         let frontTouchedNode = atPoint(location).name
         
-        if(!initializedObserver){
+        if(!GameScene.initializedObserver){
             initializeRoomObserver()
-            initializedObserver = true
+            GameScene.initializedObserver = true
         }
         
         if frontTouchedNode == topArrow.name! {

@@ -20,10 +20,17 @@ class BattleScene: SKScene {
     var playerNames: [String] = []
     var turn: Int = 0
     var playerIndex: Int = 0 //index of the player
+    
+    var background  = SKSpriteNode()
 
     override func didMove(to view: SKView) {
         observeGameData()
         addEnemyNodes()
+        
+        background = SKSpriteNode(imageNamed: "Into the Light by Bogwoppet on DeviantArt")
+//        background.size = CGSize(width: self.frame.width, height: self.frame.height)
+        background.zPosition = -1
+        addChild(background)
     }
     
     override func sceneDidLoad() {
@@ -76,6 +83,7 @@ class BattleScene: SKScene {
                     
                     if let hitPoints = player["hitpoints"] as? Int {
                         tempPlayer?.currentHP = hitPoints
+                        tempPlayer?.HPLabel.text = (tempPlayer?.name!)! + " " + String(hitPoints)
                     }
                     
                     if let cards = player["cards"] as? [String] {
@@ -100,15 +108,19 @@ class BattleScene: SKScene {
             self.addCardNodes()
             
             if let enemies = data["enemies"] as? NSDictionary {
-                if let archerHP = enemies["enemy_archer"] as? Int {
-                    self.enemies[0].currentHP = archerHP
-                }
-                if let guardHP = data["enemy_guard"] as? Int {
-                    self.enemies[1].currentHP = guardHP
+                for en in self.enemies {
+                    if let enemyHP = enemies[en.name!] as? Int {
+                        en.currentHP = enemyHP
+                        en.HPLabel.text = en.name! + " " + String(enemyHP)
+                        if enemyHP <= 0 {
+                            en.texture = SKTexture(imageNamed: "2868354")
+                        }
+                        print(en.name! + " " + String(en.currentHP))
+                    }
                 }
             }
             
-            self.checkForEndOfGame()
+            self.checkForEndOfBattle()
             
         }
     }
@@ -124,8 +136,8 @@ class BattleScene: SKScene {
         print("ADDING CARD NODES")
         var i = 0
         for x in cards {
-            x.size = CGSize(width: x.size.width/7, height: x.size.height/6)
-            x.position = CGPoint(x: i*100 - 100, y: -30)
+            x.size = CGSize(width: x.size.width/8, height: x.size.height/8)
+            x.position = CGPoint(x: i*100 - 180, y: -50)
             i += 1
             addChild(x)
         }
@@ -138,7 +150,7 @@ class BattleScene: SKScene {
         for x in players {
             print("adding " + playerNames[i])
             x.name = playerNames[i]
-            x.size = CGSize(width: x.size.width/4, height: x.size.height/4)
+            x.size = CGSize(width: x.size.width/6, height: x.size.height/6)
             x.position = CGPoint(x: i*100 - 300, y: +120)
             i += 1
             addChild(x)
@@ -155,7 +167,7 @@ class BattleScene: SKScene {
     
         var i = 0
         for x in enemies {
-            x.size = CGSize(width: x.size.width/4, height: x.size.height/4)
+            x.size = CGSize(width: x.size.width/6, height: x.size.height/6)
             x.position = CGPoint(x: i*100 + 100, y: +120)
             i += 1
             addChild(x)
@@ -177,20 +189,21 @@ class BattleScene: SKScene {
      */
     func nextPlayersTurn(){
         
-        checkForEndOfGame()
-        
         updateDataInDatabase()
         turn = (turn + 1) % playerNames.count
         FirebaseUtils.setPlayerTurn(gameID: FirstScreenViewController.gameID, turn: turn)
+        
+        checkForEndOfBattle()
     }
     
     /*
      checks for the end of the game and if it is the end then goes to end of game segue
      */
-    func checkForEndOfGame(){
-        if isEndOfGame() {
+    func checkForEndOfBattle(){
+        if isEndOfBattle() {
             if let view = self.view, let window = view.window, let rootVC = window.rootViewController {
-                rootVC.performSegue(withIdentifier: "GameEndSegue", sender: nil)
+                FirebaseUtils.setDungeonRomm(gameID: FirstScreenViewController.gameID, room: "none")
+                rootVC.performSegue(withIdentifier: "GoToDungeonSegue", sender: nil)
             }
         }
     }
@@ -198,7 +211,7 @@ class BattleScene: SKScene {
     /*
      checks to see if it should be the end of the game
      */
-    func isEndOfGame() -> Bool {
+    func isEndOfBattle() -> Bool {
         for x in enemies {
             if x.currentHP > 0 {
                 return false

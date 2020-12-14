@@ -25,6 +25,7 @@ class Enemy: SKSpriteNode {
     var minBlockRange: Int
     var maxBlockRange: Int
     var defense = 0
+    let HPLabel: SKLabelNode
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("NSCoding not supported")
@@ -103,7 +104,18 @@ class Enemy: SKSpriteNode {
             self.minBlockRange = 50
             self.maxBlockRange = 100
         }
+        
+        HPLabel = SKLabelNode(fontNamed: "OpenSans-Bold")
+        
         super.init(texture: enemyImage, color: .clear, size: enemyImage.size())
+        
+        HPLabel.name = "hitpointlabel"
+        HPLabel.fontSize = 12
+        HPLabel.fontColor = SKColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        HPLabel.text = String(currentHP)
+        HPLabel.position = CGPoint(x: 0, y: 40)
+        
+        addChild(HPLabel)
     }
     
     //checks to see if the node clicked was an enemy

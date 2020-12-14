@@ -21,10 +21,17 @@ class MiniBoss: SKScene {
     var playerNames: [String] = []
     var turn: Int = 0
     var playerIndex: Int = 0 //index of the player
-
+    
+    var background  = SKSpriteNode()
+    
     override func didMove(to view: SKView) {
         observeGameData()
         addEnemyNodes()
+        
+        background = SKSpriteNode(imageNamed: "Flooded Catacombs by Celarx on DeviantArt")
+//        background.size = CGSize(width: self.frame.width, height: self.frame.height)
+        background.zPosition = -1
+        addChild(background)
     }
     
     override func sceneDidLoad() {
@@ -77,6 +84,7 @@ class MiniBoss: SKScene {
                     
                     if let hitPoints = player["hitpoints"] as? Int {
                         tempPlayer?.currentHP = hitPoints
+                        tempPlayer?.HPLabel.text = (tempPlayer?.name!)! + " " + String(hitPoints)
                     }
                     
                     if let cards = player["cards"] as? [String] {
@@ -105,6 +113,10 @@ class MiniBoss: SKScene {
                 for en in self.enemies {
                     if let enemyHP = enemies[en.name!] as? Int {
                         en.currentHP = enemyHP
+                        en.HPLabel.text = en.name! + " " + String(enemyHP)
+                        if enemyHP <= 0 {
+                            en.texture = SKTexture(imageNamed: "2868354")
+                        }
                         print(en.name! + " " + String(en.currentHP))
                     }
                 }
@@ -140,7 +152,7 @@ class MiniBoss: SKScene {
         for x in players {
             print("adding " + playerNames[i])
             x.name = playerNames[i]
-            x.size = CGSize(width: x.size.width/4, height: x.size.height/4)
+            x.size = CGSize(width: x.size.width/6, height: x.size.height/6)
             x.position = CGPoint(x: i*100 - 300, y: +120)
             i += 1
             addChild(x)
@@ -160,7 +172,7 @@ class MiniBoss: SKScene {
     
         var i = 0
         for x in enemies {
-            x.size = CGSize(width: x.size.width/4, height: x.size.height/4)
+            x.size = CGSize(width: x.size.width/6, height: x.size.height/6)
             x.position = CGPoint(x: i*100 + 100, y: +120)
             i += 1
             addChild(x)
@@ -182,11 +194,11 @@ class MiniBoss: SKScene {
      */
     func nextPlayersTurn(){
         
-        checkForEndOfGame()
-        
         updateDataInDatabase()
         turn = (turn + 1) % playerNames.count
         FirebaseUtils.setPlayerTurn(gameID: FirstScreenViewController.gameID, turn: turn)
+        
+        checkForEndOfGame()
     }
     
     /*

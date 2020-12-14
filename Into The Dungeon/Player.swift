@@ -25,11 +25,14 @@ class Player: SKSpriteNode {
     var currentHand = [Card]()
     var discardPile = [Card]()
     var defensePoint = 0
+    let HPLabel: SKLabelNode
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("NSCoding not supported")
     }
+    
     init(playerType: PlayerType) {
+        
         self.playerType = playerType
         switch playerType {
         case .warrior:
@@ -61,7 +64,19 @@ class Player: SKSpriteNode {
             self.Evasion = 1
             self.manaPool = 3
         }
+        
+        
+        HPLabel = SKLabelNode(fontNamed: "OpenSans-Bold")
+        
         super.init(texture: playerImage, color: .clear, size: playerImage.size())
+        
+        HPLabel.name = "hitpointlabel"
+        HPLabel.fontSize = 12
+        HPLabel.fontColor = SKColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        HPLabel.text = String(currentHP)
+        HPLabel.position = CGPoint(x: 0, y: 40)
+        
+        addChild(HPLabel)
     }
     
     // invoke when user choose to heal
