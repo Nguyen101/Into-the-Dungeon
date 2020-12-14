@@ -23,10 +23,10 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         
         background = SKSpriteNode(imageNamed: "dog")
-        topArrow = SKSpriteNode(imageNamed: "104415")
-        bottomArrow = SKSpriteNode(imageNamed: "104415")
-        leftArrow = SKSpriteNode(imageNamed: "104415")
-        rightArrow = SKSpriteNode(imageNamed: "104415")
+        topArrow = SKSpriteNode(imageNamed: "3153859")
+        bottomArrow = SKSpriteNode(imageNamed: "1469810")
+        leftArrow = SKSpriteNode(imageNamed: "509802")
+        rightArrow = SKSpriteNode(imageNamed: "2614419")
         
         background.size = CGSize(width: self.frame.width, height: self.frame.height)
         background.zPosition = -1
@@ -35,14 +35,14 @@ class GameScene: SKScene {
         
         topArrow.name = "topArrow"
         topArrow.size = CGSize(width: topArrow.size.width/8, height: topArrow.size.height/8)
-        topArrow.position = CGPoint(x: 0, y: 600)
+        topArrow.position = CGPoint(x: 0, y: 550)
         print(self.frame.width)
         print(self.frame.height)
         addChild(topArrow)
         
         bottomArrow.name = "bottomArrow"
         bottomArrow.size = CGSize(width: bottomArrow.size.width/8, height: bottomArrow.size.height/8)
-        bottomArrow.position = CGPoint(x: 0, y: -600)
+        bottomArrow.position = CGPoint(x: 0, y: -550)
         addChild(bottomArrow)
         
         leftArrow.name = "leftArrow"
