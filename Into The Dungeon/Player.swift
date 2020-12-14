@@ -73,7 +73,7 @@ class Player: SKSpriteNode {
         self.currentDeck.append(newCard)
     }
     // basic attack
-    func attack(cardPlayed: Card, target: Enemy) {
+    func attack(cardPlayed: Card, target: Enemy){
         switch cardPlayed.cardType {
         case .slash:
             target.currentHP -= 100

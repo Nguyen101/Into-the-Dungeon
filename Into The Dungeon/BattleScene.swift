@@ -75,7 +75,7 @@ class BattleScene: SKScene {
                     }
                     
                     if let hitPoints = player["hitpoints"] as? Int {
-                        tempPlayer?.HP = hitPoints
+                        tempPlayer?.currentHP = hitPoints
                     }
                     
                     if let cards = player["cards"] as? [String] {
@@ -101,10 +101,10 @@ class BattleScene: SKScene {
             
             if let enemies = data["enemies"] as? NSDictionary {
                 if let archerHP = enemies["enemy_archer"] as? Int {
-                    self.enemies[0].HP = archerHP
+                    self.enemies[0].currentHP = archerHP
                 }
                 if let guardHP = data["enemy_guard"] as? Int {
-                    self.enemies[1].HP = guardHP
+                    self.enemies[1].currentHP = guardHP
                 }
             }
             
@@ -200,7 +200,7 @@ class BattleScene: SKScene {
      */
     func isEndOfGame() -> Bool {
         for x in enemies {
-            if x.HP > 0 {
+            if x.currentHP > 0 {
                 return false
             }
         }
@@ -220,10 +220,10 @@ class BattleScene: SKScene {
      */
     func updateDataInDatabase(){
         for x in players {
-            FirebaseUtils.setHitPointsForUser(gameID: FirstScreenViewController.gameID, userName: x.name!, hitPoints: x.HP)
+            FirebaseUtils.setHitPointsForUser(gameID: FirstScreenViewController.gameID, userName: x.name!, hitPoints: x.currentHP)
         }
-        FirebaseUtils.setEnemyHitPoints(gameID: FirstScreenViewController.gameID, enemyName: "enemy_archer", hitPoints: enemies[0].HP)
-        FirebaseUtils.setEnemyHitPoints(gameID: FirstScreenViewController.gameID, enemyName: "enemy_guard", hitPoints: enemies[1].HP)
+        FirebaseUtils.setEnemyHitPoints(gameID: FirstScreenViewController.gameID, enemyName: "enemy_archer", hitPoints: enemies[0].currentHP)
+        FirebaseUtils.setEnemyHitPoints(gameID: FirstScreenViewController.gameID, enemyName: "enemy_guard", hitPoints: enemies[1].currentHP)
     }
     
     /*

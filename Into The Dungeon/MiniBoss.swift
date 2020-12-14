@@ -76,7 +76,7 @@ class MiniBoss: SKScene {
                     }
                     
                     if let hitPoints = player["hitpoints"] as? Int {
-                        tempPlayer?.HP = hitPoints
+                        tempPlayer?.currentHP = hitPoints
                     }
                     
                     if let cards = player["cards"] as? [String] {
@@ -103,9 +103,9 @@ class MiniBoss: SKScene {
             if let enemies = data["enemies"] as? NSDictionary {
                 
                 for en in self.enemies {
-                    
                     if let enemyHP = enemies[en.name!] as? Int {
-                        en.HP = enemyHP
+                        en.currentHP = enemyHP
+                        print(en.name! + " " + String(en.currentHP))
                     }
                 }
             }
@@ -205,7 +205,7 @@ class MiniBoss: SKScene {
      */
     func isEndOfGame() -> Bool {
         for x in enemies {
-            if x.HP > 0 {
+            if x.currentHP > 0 {
                 return false
             }
         }
@@ -225,11 +225,11 @@ class MiniBoss: SKScene {
      */
     func updateDataInDatabase(){
         for x in players {
-            FirebaseUtils.setHitPointsForUser(gameID: FirstScreenViewController.gameID, userName: x.name!, hitPoints: x.HP)
+            FirebaseUtils.setHitPointsForUser(gameID: FirstScreenViewController.gameID, userName: x.name!, hitPoints: x.currentHP)
         }
         
         for en in enemies {
-            FirebaseUtils.setEnemyHitPoints(gameID: FirstScreenViewController.gameID, enemyName: en.name!, hitPoints: en.HP)
+            FirebaseUtils.setEnemyHitPoints(gameID: FirstScreenViewController.gameID, enemyName: en.name!, hitPoints: en.currentHP)
         }
     }
     
