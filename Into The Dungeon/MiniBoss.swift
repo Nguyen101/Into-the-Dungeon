@@ -200,6 +200,19 @@ class MiniBoss: SKScene {
     }
     
     /*
+     enemy turn to attack or defend
+     */
+    func enemyTurn() {
+        var randomMove = Int.random(in: 1...2)
+        if randomMove == 1 {
+            //attack
+        } else {
+            // defend
+        }
+        //update firebaes
+        updateDataInDatabase()
+    }
+    /*
      checks for the end of the game and if it is the end then goes to end of game segue
      */
     func checkForEndOfGame(){
