@@ -17,6 +17,7 @@ class GameScene: SKScene {
     var bottomArrow = SKSpriteNode()
     var leftArrow = SKSpriteNode()
     var rightArrow = SKSpriteNode()
+    var battleRoomTwo = SKSpriteNode()
     static var initializedObserver: Bool = false;
 
     
@@ -27,6 +28,7 @@ class GameScene: SKScene {
         bottomArrow = SKSpriteNode(imageNamed: "1469810")
         leftArrow = SKSpriteNode(imageNamed: "509802")
         rightArrow = SKSpriteNode(imageNamed: "2614419")
+        battleRoomTwo = SKSpriteNode(imageNamed: "1469810")
         
 //        background.size = CGSize(width: self.frame.width, height: self.frame.height)
         background.zPosition = -1
@@ -42,8 +44,13 @@ class GameScene: SKScene {
         
         bottomArrow.name = "bottomArrow"
         bottomArrow.size = CGSize(width: bottomArrow.size.width/8, height: bottomArrow.size.height/8)
-        bottomArrow.position = CGPoint(x: 0, y: -100)
+        bottomArrow.position = CGPoint(x: -50, y: -100)
         addChild(bottomArrow)
+        
+        battleRoomTwo.name = "battleRoomTwo"
+        battleRoomTwo.size = CGSize(width: battleRoomTwo.size.width/8, height: battleRoomTwo.size.height/8)
+        battleRoomTwo.position = CGPoint(x: 50, y: -100)
+        addChild(battleRoomTwo)
         
         leftArrow.name = "leftArrow"
         leftArrow.size = CGSize(width: leftArrow.size.width/8, height: leftArrow.size.height/8)
@@ -77,24 +84,25 @@ class GameScene: SKScene {
         
         if frontTouchedNode == topArrow.name! {
             print("Top Arrow Touched")
-        }else if(frontTouchedNode == bottomArrow.name!){
-            print("Bottom Arrow Touched " + FirstScreenViewController.userName)
+        }else if (frontTouchedNode == battleRoomTwo.name!){
             FirebaseUtils.getIsUserInCharge(gameID: FirstScreenViewController.gameID, userName: FirstScreenViewController.userName) { (data) in
-                print(data)
                 if(data){
-                    print("TEST")
+                    FirebaseUtils.setDungeonRomm(gameID: FirstScreenViewController.gameID, room: "battleRoomTwo")
+                }
+            }
+        }else if(frontTouchedNode == bottomArrow.name!){
+            FirebaseUtils.getIsUserInCharge(gameID: FirstScreenViewController.gameID, userName: FirstScreenViewController.userName) { (data) in
+                if(data){
                     FirebaseUtils.setDungeonRomm(gameID: FirstScreenViewController.gameID, room: "battle scene")
                 }
             }
         }else if(frontTouchedNode == leftArrow.name!){
-            print("Left Arrow Touched")
             FirebaseUtils.getIsUserInCharge(gameID: FirstScreenViewController.gameID, userName: FirstScreenViewController.userName) { (data) in
                 if(data){
                     FirebaseUtils.setDungeonRomm(gameID: FirstScreenViewController.gameID, room: "shop scene")
                 }
             }
         }else if(frontTouchedNode == rightArrow.name!){
-            print("Right Arrow Touched")
             FirebaseUtils.getIsUserInCharge(gameID: FirstScreenViewController.gameID, userName: FirstScreenViewController.userName) { (data) in
                 if(data){
                     FirebaseUtils.setDungeonRomm(gameID: FirstScreenViewController.gameID, room: "mini boss scene")
@@ -115,11 +123,15 @@ class GameScene: SKScene {
             FirebaseUtils.observeDungeonRoom(gameID: FirstScreenViewController.gameID) { (data) in
                 print(data)
                 if data == "battle scene" {
+                    BattleScene.battleRoom = 0
                     rootVC.performSegue(withIdentifier: "BattleSceneSegue", sender: nil)
                 }else if data == "shop scene" {
                     rootVC.performSegue(withIdentifier: "ShopSceneSegue", sender: nil)
                 }else if data == "mini boss scene" {
                     rootVC.performSegue(withIdentifier: "MiniBossSceneSegue", sender: nil)
+                }else if data == "battleRoomTwo" {
+                    BattleScene.battleRoom = 1
+                    rootVC.performSegue(withIdentifier: "BattleSceneSegue", sender: nil)
                 }
             }
         }

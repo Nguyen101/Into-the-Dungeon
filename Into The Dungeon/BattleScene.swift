@@ -10,6 +10,10 @@ import SpriteKit
 import GameplayKit
 
 class BattleScene: SKScene {
+    
+    
+    static var battleRoom: Int = 0
+    
     var players: [Player] = []
     var cards: [Card] = []
     var enemies: [Enemy] = []
@@ -161,10 +165,17 @@ class BattleScene: SKScene {
     func addEnemyNodes(){
         print("ADDING ENEMY NODES")
         
-        enemies.append(Enemy(enemyType: .archer))
-        enemies.append(Enemy(enemyType: .guarD))
-        self.enemies[0].name = "enemy_archer"
-        self.enemies[1].name = "enemy_guard"
+        if BattleScene.battleRoom == 0 {
+            enemies.append(Enemy(enemyType: .archer))
+            enemies.append(Enemy(enemyType: .guarD))
+            self.enemies[0].name = "enemy_archer"
+            self.enemies[1].name = "enemy_guard"
+        }else {
+            enemies.append(Enemy(enemyType: .mage))
+            enemies.append(Enemy(enemyType: .doctor))
+            self.enemies[0].name = "enemy_mage"
+            self.enemies[1].name = "enemy_doctor"
+        }
     
         var i = 0
         for x in enemies {
@@ -238,8 +249,9 @@ class BattleScene: SKScene {
         for x in players {
             FirebaseUtils.setHitPointsForUser(gameID: FirstScreenViewController.gameID, userName: x.name!, hitPoints: x.currentHP)
         }
-        FirebaseUtils.setEnemyHitPoints(gameID: FirstScreenViewController.gameID, enemyName: "enemy_archer", hitPoints: enemies[0].currentHP)
-        FirebaseUtils.setEnemyHitPoints(gameID: FirstScreenViewController.gameID, enemyName: "enemy_guard", hitPoints: enemies[1].currentHP)
+        for x in enemies {
+            FirebaseUtils.setEnemyHitPoints(gameID: FirstScreenViewController.gameID, enemyName: x.name!, hitPoints: x.currentHP)
+        }
     }
     
     /*

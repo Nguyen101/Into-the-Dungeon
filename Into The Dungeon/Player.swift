@@ -14,6 +14,7 @@ enum PlayerType: Int {
 }
 
 class Player: SKSpriteNode {
+    
     let playerType: PlayerType
     let playerImage: SKTexture
     var HP: Int
@@ -89,19 +90,23 @@ class Player: SKSpriteNode {
     }
     // basic attack
     func attack(cardPlayed: Card, target: Enemy){
+        var blockAmount = Int.random(in: target.minBlockRange...target.maxBlockRange)
         switch cardPlayed.cardType {
         case .slash:
-            target.currentHP -= 100
+            target.currentHP -= (200 - blockAmount)
         case .shoot:
-            target.currentHP -= 100
+            target.currentHP -= (160 - blockAmount)
         case .marked:
-            target.currentHP -= 100
+            target.currentHP -= (200 - blockAmount)
         case .headBash:
-            target.currentHP -= 100
+            target.currentHP -= (180 - blockAmount)
         case .fireBlast:
-            target.currentHP -= 100
+            target.currentHP -= (250 - blockAmount)
         default:
             print("unknown action")
+        }
+        if target.currentHP < 0 {
+            target.currentHP = 0
         }
     }
     // basic block
@@ -110,17 +115,17 @@ class Player: SKSpriteNode {
         case .guarD:
             defensePoint += 100
         case .moraleBoost:
-            defensePoint += 100
+            defensePoint += 120
         case .block:
-            defensePoint += 100
+            defensePoint += 130
         case .shield:
-            defensePoint += 100
+            defensePoint += 140
         case .basicHeal:
-            defensePoint += 100
+            defensePoint += 160
         case .iceBarrier:
-            defensePoint += 100
+            defensePoint += 120
         case .divineLight:
-            defensePoint += 100
+            defensePoint += 180
         default:
             print("unknown action")
         }
