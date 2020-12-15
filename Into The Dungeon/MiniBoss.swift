@@ -25,9 +25,8 @@ class MiniBoss: SKScene {
     var background  = SKSpriteNode()
     
     override func didMove(to view: SKView) {
-        observeGameData()
         addEnemyNodes()
-        
+        observeGameData()
         background = SKSpriteNode(imageNamed: "Flooded Catacombs by Celarx on DeviantArt")
 //        background.size = CGSize(width: self.frame.width, height: self.frame.height)
         background.zPosition = -1
@@ -35,7 +34,7 @@ class MiniBoss: SKScene {
     }
     
     override func sceneDidLoad() {
-
+        
     }
     
     func observeGameData(){
@@ -109,7 +108,7 @@ class MiniBoss: SKScene {
             self.addCardNodes()
             
             if let enemies = data["enemies"] as? NSDictionary {
-                
+
                 for en in self.enemies {
                     if let enemyHP = enemies[en.name!] as? Int {
                         en.currentHP = enemyHP
@@ -193,11 +192,9 @@ class MiniBoss: SKScene {
      sets the turn to be the next players
      */
     func nextPlayersTurn(){
-        
         updateDataInDatabase()
         turn = (turn + 1) % playerNames.count
         FirebaseUtils.setPlayerTurn(gameID: FirstScreenViewController.gameID, turn: turn)
-        
         checkForEndOfGame()
     }
     

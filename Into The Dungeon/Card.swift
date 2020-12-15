@@ -55,13 +55,13 @@ class Card: SKSpriteNode {
             frontTexture = SKTexture(imageNamed:  "archer_block")
             cardName = "archer_block"
         case .hellFire:
-            frontTexture = SKTexture(imageNamed: "archer_hellfire")
+            frontTexture = SKTexture(imageNamed: "archer_hellFire")
             cardName = "archer_hellFire"
         case .marked:
             frontTexture = SKTexture(imageNamed: "archer_marked")
             cardName = "archer_marked"
         case .headBash:
-            frontTexture = SKTexture(imageNamed: "cleric_headbash")
+            frontTexture = SKTexture(imageNamed: "cleric_headBash")
             cardName = "cleric_headBash"
         case .shield:
             frontTexture = SKTexture(imageNamed: "cleric_shield")

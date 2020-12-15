@@ -15,15 +15,12 @@ import FirebaseDatabase
 import Firebase
 
 class MiniBossViewController: UIViewController {
-
-    
-    var gameID: String? = nil
-    var userName: String? = nil //nae of the user so that we can identify it out of the list of players
-    
     @IBAction func goBackButton(_ sender: Any) {
         FirebaseUtils.setDungeonRomm(gameID: FirstScreenViewController.gameID, room: "none")
     }
     
+    var gameID: String? = nil
+    var userName: String? = nil //nae of the user so that we can identify it out of the list of players
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,8 +34,8 @@ class MiniBossViewController: UIViewController {
                 
                 // Present the scene
                 view.presentScene(scene)
+                
             }
-           
             
             view.ignoresSiblingOrder = true
             
@@ -59,4 +56,14 @@ class MiniBossViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        AppUtility.lockOrientation(.landscape)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        AppUtility.lockOrientation(.all)
+    }
+    
 }

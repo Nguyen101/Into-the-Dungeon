@@ -34,7 +34,7 @@ class BattleScene: SKScene {
     }
     
     override func sceneDidLoad() {
-
+        
     }
     
     func observeGameData(){
