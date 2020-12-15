@@ -5,7 +5,8 @@
 //  Created by Nguyen, Vy Luong on 12/5/20.
 //  Copyright © 2020 Vy Nguyen. All rights reserved.
 //
-
+// Card Design made by Card Creatr Studio - cardcreatr.sffc.xyz
+// Art drawn by Jasper Corcoran
 import SpriteKit
 
 enum CardType: Int {
@@ -54,14 +55,14 @@ class Card: SKSpriteNode {
             frontTexture = SKTexture(imageNamed:  "archer_block")
             cardName = "archer_block"
         case .hellFire:
-            frontTexture = SKTexture(imageNamed: "archer_hellfire")
-            cardName = "archer_hellfire"
+            frontTexture = SKTexture(imageNamed: "archer_hellFire")
+            cardName = "archer_hellFire"
         case .marked:
             frontTexture = SKTexture(imageNamed: "archer_marked")
             cardName = "archer_marked"
         case .headBash:
-            frontTexture = SKTexture(imageNamed: "cleric_headbash")
-            cardName = "cleric_headbash"
+            frontTexture = SKTexture(imageNamed: "cleric_headBash")
+            cardName = "cleric_headBash"
         case .shield:
             frontTexture = SKTexture(imageNamed: "cleric_shield")
             cardName = "cleric_shield"
@@ -108,11 +109,11 @@ class Card: SKSpriteNode {
             return .shoot
         case "archer_block":
             return .block
-        case "archer_hellfire":
+        case "archer_hellFire":
             return .hellFire
         case "archer_marked":
             return .marked
-        case "cleric_headbash":
+        case "cleric_headBash":
             return .headBash
         case "cleric_shield":
             return .shield
@@ -143,9 +144,9 @@ class Card: SKSpriteNode {
          "warrior_rage",
          "archer_shoot",
          "archer_block",
-         "archer_hellfire",
+         "archer_hellFire",
          "archer_marked",
-         "cleric_headbash",
+         "cleric_headBash",
          "cleric_shield",
          "cleric_basicHeal",
          "cleric_divineHeal",

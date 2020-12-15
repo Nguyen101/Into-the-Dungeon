@@ -141,7 +141,7 @@ class CharacterSelectionController: UIViewController {
         var cards: [String] = []
         
         if className == "Cleric" {
-            cards.append("cleric_headbash")
+            cards.append("cleric_headBash")
             cards.append("cleric_shield")
             cards.append("cleric_basicHeal")
             cards.append("cleric_divineHeal")
@@ -153,7 +153,7 @@ class CharacterSelectionController: UIViewController {
         }else if className == "Archer" {
             cards.append("archer_shoot")
             cards.append("archer_block")
-            cards.append("archer_hellfire")
+            cards.append("archer_hellFire")
             cards.append("archer_marked")
         }else if className == "Warrior" {
             cards.append("warrior_slash")
