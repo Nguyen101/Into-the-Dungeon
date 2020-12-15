@@ -22,6 +22,7 @@ class BattleScene: SKScene {
     var playerIndex: Int = 0 //index of the player
     
     var background  = SKSpriteNode()
+    var stillInScene = true
 
     override func didMove(to view: SKView) {
         observeGameData()
@@ -200,10 +201,12 @@ class BattleScene: SKScene {
      checks for the end of the game and if it is the end then goes to end of game segue
      */
     func checkForEndOfBattle(){
-        if isEndOfBattle() {
+        if isEndOfBattle() && stillInScene {
             if let view = self.view, let window = view.window, let rootVC = window.rootViewController {
                 FirebaseUtils.setDungeonRomm(gameID: FirstScreenViewController.gameID, room: "none")
+                print("SEGUEING")
                 rootVC.performSegue(withIdentifier: "GoToDungeonSegue", sender: nil)
+                stillInScene = false
             }
         }
     }
