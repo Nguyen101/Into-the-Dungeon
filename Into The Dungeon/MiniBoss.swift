@@ -25,15 +25,17 @@ class MiniBoss: SKScene {
     var background  = SKSpriteNode()
     
     override func didMove(to view: SKView) {
-        addEnemyNodes()
+        print("did move from mini boss")
         observeGameData()
-        background = SKSpriteNode(imageNamed: "Flooded Catacombs by Celarx on DeviantArt")
+        addEnemyNodes()
+                background = SKSpriteNode(imageNamed: "Flooded Catacombs by Celarx on DeviantArt")
 //        background.size = CGSize(width: self.frame.width, height: self.frame.height)
         background.zPosition = -1
         addChild(background)
     }
     
     override func sceneDidLoad() {
+        print("scenedidLoad from mini boss")
         
     }
     
@@ -108,7 +110,6 @@ class MiniBoss: SKScene {
             self.addCardNodes()
             
             if let enemies = data["enemies"] as? NSDictionary {
-
                 for en in self.enemies {
                     if let enemyHP = enemies[en.name!] as? Int {
                         en.currentHP = enemyHP
