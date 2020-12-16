@@ -49,22 +49,6 @@ class GameViewController: UIViewController {
         }
     }
     
-    func updatePlayers() {
-        if let id = gameID, let user = userName {
-            FirebaseUtils.getGameData(gameID: id, completion: {(data) in
-                if let gameData = data as? NSDictionary{
-                    if let userList = gameData["users"] as? [String] {
-                        for x in userList {
-                            if let userData = gameData[x] as? NSDictionary {
-                                //self.players.append(Player(team: .team1, characterClass: userData["class"] as! String, name: userData["name"] as! String))
-                            }
-                        }
-                    }
-                }
-            })
-        }
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             if identifier == "BattleSceneSegue" {

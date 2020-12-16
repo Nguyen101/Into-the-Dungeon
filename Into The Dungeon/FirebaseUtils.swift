@@ -17,6 +17,10 @@ class FirebaseUtils {
         
     }
     
+    /*
+     gets the game data from firebase
+     takes in the game id and a closure
+     */
     static func getGameData(gameID: String, completion: @escaping (Any?) -> Void) {
         var gameData: Any? = nil
         self.ref.child("games").child(gameID).observeSingleEvent(of: .value, with: { (sanpshot) in
@@ -30,6 +34,10 @@ class FirebaseUtils {
         
     }
     
+    /*
+     observes the game data and the closure gets called whenever a value changes
+     takes in a game id and a closure
+     */
     static func observeGameData(gameID: String, completion: @escaping (NSDictionary) -> Void) {
         self.ref.child("games").child(gameID).observe(.value) { (snapshot) in
             if let data = snapshot.value as? NSDictionary{
@@ -40,10 +48,17 @@ class FirebaseUtils {
         }
     }
     
+    /*
+     sets the game data in the database
+     takes in the game data and the game id
+     */
     static func setGameData(gameID: String, gameData: Any){
         self.ref.child("games").child(gameID).setValue(gameData)
     }
     
+    /*
+     gets the user data from the data base
+     */
     static func getUserData(gameID: String, userName: String, completion: @escaping (Any?) -> Void) -> Void{
         var userData: Any? = nil
         
@@ -57,6 +72,9 @@ class FirebaseUtils {
         })
     }
     
+    /*
+     sets the user data 
+     */
     static func setUserData(gameID: String, userName: String, userData: Any){
         self.ref.child("games").child(gameID).child(userName).setValue(userData)
     }
