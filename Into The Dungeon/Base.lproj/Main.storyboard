@@ -32,7 +32,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="247" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iDH-mK-p7L">
                                                 <rect key="frame" x="103.33333333333334" y="0.0" width="87.333333333333343" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -398,7 +398,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Mkp-MW-DvT"/>
+        <segue reference="It4-uL-EA9"/>
         <segue reference="NPm-VS-Sb8"/>
     </inferredMetricsTieBreakers>
     <resources>

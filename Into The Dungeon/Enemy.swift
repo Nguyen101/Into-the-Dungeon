@@ -135,7 +135,26 @@ class Enemy: SKSpriteNode {
     }
     
     
-    
+    func attack(target: Player){
+        switch self.enemyType {
+        case .guarD:
+            slash(target: target)
+        case .archer:
+            shoot(target: target)
+        case .greatLancer:
+            charge(target: target)
+        case .theExecutor:
+            slash(target: target)
+        case .mage:
+            fireBall(target: target)
+        case .doctor:
+            shoot(target: target)
+        case .corruptKing:
+            slash(target: target)
+        default:
+            print("not found")
+        }
+    }
     
     // Guard abilities
     // SLASH:
@@ -145,7 +164,7 @@ class Enemy: SKSpriteNode {
         // take damage if the enemy hit damage is greater than the current defense point of the player
         if target.defensePoint < randomInt {
             let damageTaken = randomInt - target.defensePoint
-            target.HP -= damageTaken
+            target.currentHP -= damageTaken
         } else {
             target.defensePoint -= randomInt
         }
@@ -165,7 +184,7 @@ class Enemy: SKSpriteNode {
         // take damage if the enemy hit damage is greater than the current defense point of the player
         if target.defensePoint < randomInt {
             let damageTaken = randomInt - target.defensePoint
-            target.HP -= damageTaken
+            target.currentHP -= damageTaken
         } else {
             target.defensePoint -= randomInt
         }
@@ -202,7 +221,7 @@ class Enemy: SKSpriteNode {
         // take damage if the enemy hit damage is greater than the current defense point of the player
         if target.defensePoint < randomInt {
             let damageTaken = randomInt - target.defensePoint
-            target.HP -= damageTaken
+            target.currentHP -= damageTaken
         } else {
             target.defensePoint -= randomInt
         }

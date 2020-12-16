@@ -90,7 +90,7 @@ class Player: SKSpriteNode {
     }
     // basic attack
     func attack(cardPlayed: Card, target: Enemy){
-        var blockAmount = Int.random(in: target.minBlockRange...target.maxBlockRange)
+        let blockAmount = Int.random(in: target.minBlockRange...target.maxBlockRange)
         switch cardPlayed.cardType {
         case .slash:
             target.currentHP -= (200 - blockAmount)
@@ -134,7 +134,7 @@ class Player: SKSpriteNode {
         
     }
     func drawCard() {
-        var randomInt = Int.random(in: 1..<currentDeck.count)
+        let randomInt = Int.random(in: 1..<currentDeck.count)
         currentHand.append(currentDeck[randomInt])
         currentDeck.remove(at: randomInt)
     }

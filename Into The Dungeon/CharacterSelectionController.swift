@@ -121,13 +121,13 @@ class CharacterSelectionController: UIViewController {
                     FirebaseUtils.setClassForUser(gameID: id, userName: name, className: className)
                     FirebaseUtils.setCardsforUser(gameID: id, userName: name, cards: cards)
                     if className == "Cleric" {
-                        FirebaseUtils.setHitPointsForUser(gameID: id, userName: name, hitPoints: 100)
-                    }else if className == "Mage" {
-                        FirebaseUtils.setHitPointsForUser(gameID: id, userName: name, hitPoints: 150)
-                    }else if className == "Archer" {
-                        FirebaseUtils.setHitPointsForUser(gameID: id, userName: name, hitPoints: 150)
-                    }else if className == "Warrior" {
                         FirebaseUtils.setHitPointsForUser(gameID: id, userName: name, hitPoints: 200)
+                    }else if className == "Mage" {
+                        FirebaseUtils.setHitPointsForUser(gameID: id, userName: name, hitPoints: 300)
+                    }else if className == "Archer" {
+                        FirebaseUtils.setHitPointsForUser(gameID: id, userName: name, hitPoints: 300)
+                    }else if className == "Warrior" {
+                        FirebaseUtils.setHitPointsForUser(gameID: id, userName: name, hitPoints: 400)
                     }
                 }
                 

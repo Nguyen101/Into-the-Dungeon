@@ -200,7 +200,7 @@ class BattleScene: SKScene {
      sets the turn to be the next players
      */
     func nextPlayersTurn(){
-        
+        enemies[Int.random(in: 0..<enemies.count)].attack(target: players[turn])
         updateDataInDatabase()
         turn = (turn + 1) % playerNames.count
         FirebaseUtils.setPlayerTurn(gameID: FirstScreenViewController.gameID, turn: turn)
